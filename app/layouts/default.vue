@@ -34,5 +34,10 @@ useHead({
     <main class="max-w-[1800px] mx-auto px-4 py-4 md:px-6 md:py-6">
       <slot />
     </main>
+    <footer class="border-t border-(--border) px-4 py-3 md:px-6">
+      <div class="max-w-[1800px] mx-auto text-center text-xs text-(--muted-foreground)">
+        © 2026 — Product of <a href="https://x.com/quantoxtinc" target="_blank" rel="noopener" class="font-semibold text-(--foreground) hover:underline">Quantoxt Inc</a>
+      </div>
+    </footer>
   </div>
 </template>
