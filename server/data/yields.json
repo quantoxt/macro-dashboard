@@ -1,0 +1,2963 @@
+{
+  "yields": [
+    {
+      "currency": "USD",
+      "seriesId": "DGS2",
+      "latest": 3.82,
+      "history": [
+        {
+          "date": "2026-03-30",
+          "value": 3.82
+        },
+        {
+          "date": "2026-03-27",
+          "value": 3.88
+        },
+        {
+          "date": "2026-03-26",
+          "value": 3.96
+        },
+        {
+          "date": "2026-03-25",
+          "value": 3.84
+        },
+        {
+          "date": "2026-03-24",
+          "value": 3.9
+        },
+        {
+          "date": "2026-03-23",
+          "value": 3.83
+        },
+        {
+          "date": "2026-03-20",
+          "value": 3.88
+        },
+        {
+          "date": "2026-03-19",
+          "value": 3.79
+        },
+        {
+          "date": "2026-03-18",
+          "value": 3.76
+        },
+        {
+          "date": "2026-03-17",
+          "value": 3.68
+        },
+        {
+          "date": "2026-03-16",
+          "value": 3.68
+        },
+        {
+          "date": "2026-03-13",
+          "value": 3.73
+        },
+        {
+          "date": "2026-03-12",
+          "value": 3.76
+        },
+        {
+          "date": "2026-03-11",
+          "value": 3.64
+        },
+        {
+          "date": "2026-03-10",
+          "value": 3.57
+        },
+        {
+          "date": "2026-03-09",
+          "value": 3.56
+        },
+        {
+          "date": "2026-03-06",
+          "value": 3.56
+        },
+        {
+          "date": "2026-03-05",
+          "value": 3.57
+        },
+        {
+          "date": "2026-03-04",
+          "value": 3.54
+        },
+        {
+          "date": "2026-03-03",
+          "value": 3.51
+        },
+        {
+          "date": "2026-03-02",
+          "value": 3.47
+        },
+        {
+          "date": "2026-02-27",
+          "value": 3.38
+        },
+        {
+          "date": "2026-02-26",
+          "value": 3.42
+        },
+        {
+          "date": "2026-02-25",
+          "value": 3.45
+        },
+        {
+          "date": "2026-02-24",
+          "value": 3.43
+        },
+        {
+          "date": "2026-02-23",
+          "value": 3.43
+        },
+        {
+          "date": "2026-02-20",
+          "value": 3.48
+        },
+        {
+          "date": "2026-02-19",
+          "value": 3.47
+        },
+        {
+          "date": "2026-02-18",
+          "value": 3.47
+        },
+        {
+          "date": "2026-02-17",
+          "value": 3.43
+        },
+        {
+          "date": "2026-02-13",
+          "value": 3.4
+        },
+        {
+          "date": "2026-02-12",
+          "value": 3.47
+        },
+        {
+          "date": "2026-02-11",
+          "value": 3.52
+        },
+        {
+          "date": "2026-02-10",
+          "value": 3.45
+        },
+        {
+          "date": "2026-02-09",
+          "value": 3.48
+        },
+        {
+          "date": "2026-02-06",
+          "value": 3.5
+        },
+        {
+          "date": "2026-02-05",
+          "value": 3.47
+        },
+        {
+          "date": "2026-02-04",
+          "value": 3.57
+        },
+        {
+          "date": "2026-02-03",
+          "value": 3.57
+        }
+      ]
+    },
+    {
+      "currency": "EUR",
+      "seriesId": "ECBMLFR",
+      "latest": 2.4,
+      "history": [
+        {
+          "date": "2026-04-01",
+          "value": 2.4
+        },
+        {
+          "date": "2026-03-31",
+          "value": 2.4
+        },
+        {
+          "date": "2026-03-30",
+          "value": 2.4
+        },
+        {
+          "date": "2026-03-29",
+          "value": 2.4
+        },
+        {
+          "date": "2026-03-28",
+          "value": 2.4
+        },
+        {
+          "date": "2026-03-27",
+          "value": 2.4
+        },
+        {
+          "date": "2026-03-26",
+          "value": 2.4
+        },
+        {
+          "date": "2026-03-25",
+          "value": 2.4
+        },
+        {
+          "date": "2026-03-24",
+          "value": 2.4
+        },
+        {
+          "date": "2026-03-23",
+          "value": 2.4
+        },
+        {
+          "date": "2026-03-22",
+          "value": 2.4
+        },
+        {
+          "date": "2026-03-21",
+          "value": 2.4
+        },
+        {
+          "date": "2026-03-20",
+          "value": 2.4
+        },
+        {
+          "date": "2026-03-19",
+          "value": 2.4
+        },
+        {
+          "date": "2026-03-18",
+          "value": 2.4
+        },
+        {
+          "date": "2026-03-17",
+          "value": 2.4
+        },
+        {
+          "date": "2026-03-16",
+          "value": 2.4
+        },
+        {
+          "date": "2026-03-15",
+          "value": 2.4
+        },
+        {
+          "date": "2026-03-14",
+          "value": 2.4
+        },
+        {
+          "date": "2026-03-13",
+          "value": 2.4
+        },
+        {
+          "date": "2026-03-12",
+          "value": 2.4
+        },
+        {
+          "date": "2026-03-11",
+          "value": 2.4
+        },
+        {
+          "date": "2026-03-10",
+          "value": 2.4
+        },
+        {
+          "date": "2026-03-09",
+          "value": 2.4
+        },
+        {
+          "date": "2026-03-08",
+          "value": 2.4
+        },
+        {
+          "date": "2026-03-07",
+          "value": 2.4
+        },
+        {
+          "date": "2026-03-06",
+          "value": 2.4
+        },
+        {
+          "date": "2026-03-05",
+          "value": 2.4
+        },
+        {
+          "date": "2026-03-04",
+          "value": 2.4
+        },
+        {
+          "date": "2026-03-03",
+          "value": 2.4
+        },
+        {
+          "date": "2026-03-02",
+          "value": 2.4
+        },
+        {
+          "date": "2026-03-01",
+          "value": 2.4
+        },
+        {
+          "date": "2026-02-28",
+          "value": 2.4
+        },
+        {
+          "date": "2026-02-27",
+          "value": 2.4
+        },
+        {
+          "date": "2026-02-26",
+          "value": 2.4
+        },
+        {
+          "date": "2026-02-25",
+          "value": 2.4
+        },
+        {
+          "date": "2026-02-24",
+          "value": 2.4
+        },
+        {
+          "date": "2026-02-23",
+          "value": 2.4
+        },
+        {
+          "date": "2026-02-22",
+          "value": 2.4
+        },
+        {
+          "date": "2026-02-21",
+          "value": 2.4
+        }
+      ]
+    },
+    {
+      "currency": "GBP",
+      "seriesId": "IUDSOIA",
+      "latest": 3.7281,
+      "history": [
+        {
+          "date": "2026-03-30",
+          "value": 3.7281
+        },
+        {
+          "date": "2026-03-27",
+          "value": 3.7284
+        },
+        {
+          "date": "2026-03-26",
+          "value": 3.7282
+        },
+        {
+          "date": "2026-03-25",
+          "value": 3.7278
+        },
+        {
+          "date": "2026-03-24",
+          "value": 3.7274
+        },
+        {
+          "date": "2026-03-23",
+          "value": 3.7274
+        },
+        {
+          "date": "2026-03-20",
+          "value": 3.7281
+        },
+        {
+          "date": "2026-03-19",
+          "value": 3.7294
+        },
+        {
+          "date": "2026-03-18",
+          "value": 3.7296
+        },
+        {
+          "date": "2026-03-17",
+          "value": 3.729
+        },
+        {
+          "date": "2026-03-16",
+          "value": 3.7289
+        },
+        {
+          "date": "2026-03-13",
+          "value": 3.7295
+        },
+        {
+          "date": "2026-03-12",
+          "value": 3.7293
+        },
+        {
+          "date": "2026-03-11",
+          "value": 3.7295
+        },
+        {
+          "date": "2026-03-10",
+          "value": 3.7294
+        },
+        {
+          "date": "2026-03-09",
+          "value": 3.7296
+        },
+        {
+          "date": "2026-03-06",
+          "value": 3.7302
+        },
+        {
+          "date": "2026-03-05",
+          "value": 3.7303
+        },
+        {
+          "date": "2026-03-04",
+          "value": 3.7301
+        },
+        {
+          "date": "2026-03-03",
+          "value": 3.7286
+        },
+        {
+          "date": "2026-03-02",
+          "value": 3.7271
+        },
+        {
+          "date": "2026-02-27",
+          "value": 3.7267
+        },
+        {
+          "date": "2026-02-26",
+          "value": 3.7286
+        },
+        {
+          "date": "2026-02-25",
+          "value": 3.7276
+        },
+        {
+          "date": "2026-02-24",
+          "value": 3.7278
+        },
+        {
+          "date": "2026-02-23",
+          "value": 3.728
+        },
+        {
+          "date": "2026-02-20",
+          "value": 3.7282
+        },
+        {
+          "date": "2026-02-19",
+          "value": 3.7276
+        },
+        {
+          "date": "2026-02-18",
+          "value": 3.7277
+        },
+        {
+          "date": "2026-02-17",
+          "value": 3.7276
+        },
+        {
+          "date": "2026-02-16",
+          "value": 3.7276
+        },
+        {
+          "date": "2026-02-13",
+          "value": 3.7267
+        },
+        {
+          "date": "2026-02-12",
+          "value": 3.7272
+        },
+        {
+          "date": "2026-02-11",
+          "value": 3.7274
+        },
+        {
+          "date": "2026-02-10",
+          "value": 3.727
+        },
+        {
+          "date": "2026-02-09",
+          "value": 3.7271
+        },
+        {
+          "date": "2026-02-06",
+          "value": 3.7279
+        },
+        {
+          "date": "2026-02-05",
+          "value": 3.7278
+        },
+        {
+          "date": "2026-02-04",
+          "value": 3.7265
+        },
+        {
+          "date": "2026-02-03",
+          "value": 3.726
+        }
+      ]
+    },
+    {
+      "currency": "JPY",
+      "seriesId": "INTDSRJPM193N",
+      "latest": 0.3,
+      "history": [
+        {
+          "date": "2017-04-01",
+          "value": 0.3
+        },
+        {
+          "date": "2017-03-01",
+          "value": 0.3
+        },
+        {
+          "date": "2017-02-01",
+          "value": 0.3
+        },
+        {
+          "date": "2017-01-01",
+          "value": 0.3
+        },
+        {
+          "date": "2016-12-01",
+          "value": 0.3
+        },
+        {
+          "date": "2016-11-01",
+          "value": 0.3
+        },
+        {
+          "date": "2016-10-01",
+          "value": 0.3
+        },
+        {
+          "date": "2016-09-01",
+          "value": 0.3
+        },
+        {
+          "date": "2016-08-01",
+          "value": 0.3
+        },
+        {
+          "date": "2016-07-01",
+          "value": 0.3
+        },
+        {
+          "date": "2016-06-01",
+          "value": 0.3
+        },
+        {
+          "date": "2016-05-01",
+          "value": 0.3
+        },
+        {
+          "date": "2016-04-01",
+          "value": 0.3
+        },
+        {
+          "date": "2016-03-01",
+          "value": 0.3
+        },
+        {
+          "date": "2016-02-01",
+          "value": 0.3
+        },
+        {
+          "date": "2016-01-01",
+          "value": 0.3
+        },
+        {
+          "date": "2015-12-01",
+          "value": 0.3
+        },
+        {
+          "date": "2015-11-01",
+          "value": 0.3
+        },
+        {
+          "date": "2015-10-01",
+          "value": 0.3
+        },
+        {
+          "date": "2015-09-01",
+          "value": 0.3
+        },
+        {
+          "date": "2015-08-01",
+          "value": 0.3
+        },
+        {
+          "date": "2015-07-01",
+          "value": 0.3
+        },
+        {
+          "date": "2015-06-01",
+          "value": 0.3
+        },
+        {
+          "date": "2015-05-01",
+          "value": 0.3
+        },
+        {
+          "date": "2015-04-01",
+          "value": 0.3
+        },
+        {
+          "date": "2015-03-01",
+          "value": 0.3
+        },
+        {
+          "date": "2015-02-01",
+          "value": 0.3
+        },
+        {
+          "date": "2015-01-01",
+          "value": 0.3
+        },
+        {
+          "date": "2014-12-01",
+          "value": 0.3
+        },
+        {
+          "date": "2014-11-01",
+          "value": 0.3
+        },
+        {
+          "date": "2014-10-01",
+          "value": 0.3
+        },
+        {
+          "date": "2014-09-01",
+          "value": 0.3
+        },
+        {
+          "date": "2014-08-01",
+          "value": 0.3
+        },
+        {
+          "date": "2014-07-01",
+          "value": 0.3
+        },
+        {
+          "date": "2014-06-01",
+          "value": 0.3
+        },
+        {
+          "date": "2014-05-01",
+          "value": 0.3
+        },
+        {
+          "date": "2014-04-01",
+          "value": 0.3
+        },
+        {
+          "date": "2014-03-01",
+          "value": 0.3
+        },
+        {
+          "date": "2014-02-01",
+          "value": 0.3
+        },
+        {
+          "date": "2014-01-01",
+          "value": 0.3
+        }
+      ]
+    },
+    {
+      "currency": "AUD",
+      "seriesId": "IRLTLT01AUM156N",
+      "latest": 4.77,
+      "history": [
+        {
+          "date": "2026-02-01",
+          "value": 4.77
+        },
+        {
+          "date": "2026-01-01",
+          "value": 4.75
+        },
+        {
+          "date": "2025-12-01",
+          "value": 4.719
+        },
+        {
+          "date": "2025-11-01",
+          "value": 4.416
+        },
+        {
+          "date": "2025-10-01",
+          "value": 4.234
+        },
+        {
+          "date": "2025-09-01",
+          "value": 4.298
+        },
+        {
+          "date": "2025-08-01",
+          "value": 4.275
+        },
+        {
+          "date": "2025-07-01",
+          "value": 4.291
+        },
+        {
+          "date": "2025-06-01",
+          "value": 4.208
+        },
+        {
+          "date": "2025-05-01",
+          "value": 4.35
+        },
+        {
+          "date": "2025-04-01",
+          "value": 4.267
+        },
+        {
+          "date": "2025-03-01",
+          "value": 4.421
+        },
+        {
+          "date": "2025-02-01",
+          "value": 4.423
+        },
+        {
+          "date": "2025-01-01",
+          "value": 4.481
+        },
+        {
+          "date": "2024-12-01",
+          "value": 4.313
+        },
+        {
+          "date": "2024-11-01",
+          "value": 4.544
+        },
+        {
+          "date": "2024-10-01",
+          "value": 4.267
+        },
+        {
+          "date": "2024-09-01",
+          "value": 3.922
+        },
+        {
+          "date": "2024-08-01",
+          "value": 3.976
+        },
+        {
+          "date": "2024-07-01",
+          "value": 4.326
+        },
+        {
+          "date": "2024-06-01",
+          "value": 4.242
+        },
+        {
+          "date": "2024-05-01",
+          "value": 4.325
+        },
+        {
+          "date": "2024-04-01",
+          "value": 4.268
+        },
+        {
+          "date": "2024-03-01",
+          "value": 4.045
+        },
+        {
+          "date": "2024-02-01",
+          "value": 4.141
+        },
+        {
+          "date": "2024-01-01",
+          "value": 4.148
+        },
+        {
+          "date": "2023-12-01",
+          "value": 4.187
+        },
+        {
+          "date": "2023-11-01",
+          "value": 4.578
+        },
+        {
+          "date": "2023-10-01",
+          "value": 4.633
+        },
+        {
+          "date": "2023-09-01",
+          "value": 4.211
+        },
+        {
+          "date": "2023-08-01",
+          "value": 4.128
+        },
+        {
+          "date": "2023-07-01",
+          "value": 4.036
+        },
+        {
+          "date": "2023-06-01",
+          "value": 3.916
+        },
+        {
+          "date": "2023-05-01",
+          "value": 3.5
+        },
+        {
+          "date": "2023-04-01",
+          "value": 3.343
+        },
+        {
+          "date": "2023-03-01",
+          "value": 3.468
+        },
+        {
+          "date": "2023-02-01",
+          "value": 3.702
+        },
+        {
+          "date": "2023-01-01",
+          "value": 3.604
+        },
+        {
+          "date": "2022-12-01",
+          "value": 3.551
+        },
+        {
+          "date": "2022-11-01",
+          "value": 3.696
+        }
+      ]
+    },
+    {
+      "currency": "NZD",
+      "seriesId": "IRSTCI01NZM156N",
+      "latest": 4.33,
+      "history": [
+        {
+          "date": "2024-12-01",
+          "value": 4.33
+        },
+        {
+          "date": "2024-11-01",
+          "value": 4.79
+        },
+        {
+          "date": "2024-10-01",
+          "value": 4.77
+        },
+        {
+          "date": "2024-09-01",
+          "value": 5.21
+        },
+        {
+          "date": "2024-08-01",
+          "value": 5.45
+        },
+        {
+          "date": "2024-07-01",
+          "value": 5.49
+        },
+        {
+          "date": "2024-06-01",
+          "value": 5.52
+        },
+        {
+          "date": "2024-05-01",
+          "value": 5.5
+        },
+        {
+          "date": "2024-04-01",
+          "value": 5.47
+        },
+        {
+          "date": "2024-03-01",
+          "value": 5.38
+        },
+        {
+          "date": "2024-02-01",
+          "value": 5.43
+        },
+        {
+          "date": "2024-01-01",
+          "value": 5.52
+        },
+        {
+          "date": "2023-12-01",
+          "value": 5.35
+        },
+        {
+          "date": "2023-11-01",
+          "value": 5.43
+        },
+        {
+          "date": "2023-10-01",
+          "value": 5.4
+        },
+        {
+          "date": "2023-09-01",
+          "value": 5.39
+        },
+        {
+          "date": "2023-08-01",
+          "value": 5.41
+        },
+        {
+          "date": "2023-07-01",
+          "value": 5.47
+        },
+        {
+          "date": "2023-06-01",
+          "value": 5.4
+        },
+        {
+          "date": "2023-05-01",
+          "value": 5.34
+        },
+        {
+          "date": "2023-04-01",
+          "value": 5.01
+        },
+        {
+          "date": "2023-03-01",
+          "value": 4.75
+        },
+        {
+          "date": "2023-02-01",
+          "value": 4.2
+        },
+        {
+          "date": "2023-01-01",
+          "value": 4.21
+        },
+        {
+          "date": "2022-12-01",
+          "value": 4.18
+        },
+        {
+          "date": "2022-11-01",
+          "value": 3.55
+        },
+        {
+          "date": "2022-10-01",
+          "value": 3.29
+        },
+        {
+          "date": "2022-09-01",
+          "value": 2.9
+        },
+        {
+          "date": "2022-08-01",
+          "value": 2.78
+        },
+        {
+          "date": "2022-07-01",
+          "value": 2.2
+        },
+        {
+          "date": "2022-06-01",
+          "value": 1.96
+        },
+        {
+          "date": "2022-05-01",
+          "value": 1.53
+        },
+        {
+          "date": "2022-04-01",
+          "value": 1.24
+        },
+        {
+          "date": "2022-03-01",
+          "value": 0.94
+        },
+        {
+          "date": "2022-02-01",
+          "value": 0.73
+        },
+        {
+          "date": "2022-01-01",
+          "value": 0.67
+        },
+        {
+          "date": "2021-12-01",
+          "value": 0.71
+        },
+        {
+          "date": "2021-11-01",
+          "value": 0.54
+        },
+        {
+          "date": "2021-10-01",
+          "value": 0.38
+        },
+        {
+          "date": "2021-09-01",
+          "value": 0.2
+        }
+      ]
+    },
+    {
+      "currency": "CAD",
+      "seriesId": "IRLTLT01CAM156N",
+      "latest": 3.28842105263158,
+      "history": [
+        {
+          "date": "2026-02-01",
+          "value": 3.28842105263158
+        },
+        {
+          "date": "2026-01-01",
+          "value": 3.40238095238095
+        },
+        {
+          "date": "2025-12-01",
+          "value": 3.42266666666667
+        },
+        {
+          "date": "2025-11-01",
+          "value": 3.18428571428571
+        },
+        {
+          "date": "2025-10-01",
+          "value": 3.12818181818182
+        },
+        {
+          "date": "2025-09-01",
+          "value": 3.2245
+        },
+        {
+          "date": "2025-08-01",
+          "value": 3.4225
+        },
+        {
+          "date": "2025-07-01",
+          "value": 3.48045454545455
+        },
+        {
+          "date": "2025-06-01",
+          "value": 3.314
+        },
+        {
+          "date": "2025-05-01",
+          "value": 3.22142857142857
+        },
+        {
+          "date": "2025-04-01",
+          "value": 3.10857142857143
+        },
+        {
+          "date": "2025-03-01",
+          "value": 3.01047619047619
+        },
+        {
+          "date": "2025-02-01",
+          "value": 3.05631578947368
+        },
+        {
+          "date": "2025-01-01",
+          "value": 3.28863636363636
+        },
+        {
+          "date": "2024-12-01",
+          "value": 3.1615
+        },
+        {
+          "date": "2024-11-01",
+          "value": 3.2785
+        },
+        {
+          "date": "2024-10-01",
+          "value": 3.18636363636364
+        },
+        {
+          "date": "2024-09-01",
+          "value": 2.94444444444444
+        },
+        {
+          "date": "2024-08-01",
+          "value": 3.0715
+        },
+        {
+          "date": "2024-07-01",
+          "value": 3.40772727272727
+        },
+        {
+          "date": "2024-06-01",
+          "value": 3.3915
+        },
+        {
+          "date": "2024-05-01",
+          "value": 3.64181818181818
+        },
+        {
+          "date": "2024-04-01",
+          "value": 3.69590909090909
+        },
+        {
+          "date": "2024-03-01",
+          "value": 3.444
+        },
+        {
+          "date": "2024-02-01",
+          "value": 3.504
+        },
+        {
+          "date": "2024-01-01",
+          "value": 3.34636363636364
+        },
+        {
+          "date": "2023-12-01",
+          "value": 3.23421052631579
+        },
+        {
+          "date": "2023-11-01",
+          "value": 3.71095238095238
+        },
+        {
+          "date": "2023-10-01",
+          "value": 4.062
+        },
+        {
+          "date": "2023-09-01",
+          "value": 3.816
+        },
+        {
+          "date": "2023-08-01",
+          "value": 3.65409090909091
+        },
+        {
+          "date": "2023-07-01",
+          "value": 3.452
+        },
+        {
+          "date": "2023-06-01",
+          "value": 3.33818181818182
+        },
+        {
+          "date": "2023-05-01",
+          "value": 3.04545454545455
+        },
+        {
+          "date": "2023-04-01",
+          "value": 2.91611111111111
+        },
+        {
+          "date": "2023-03-01",
+          "value": 2.99347826086957
+        },
+        {
+          "date": "2023-02-01",
+          "value": 3.17421052631579
+        },
+        {
+          "date": "2023-01-01",
+          "value": 2.93761904761905
+        },
+        {
+          "date": "2022-12-01",
+          "value": 2.9415
+        },
+        {
+          "date": "2022-11-01",
+          "value": 3.16619047619048
+        }
+      ]
+    },
+    {
+      "currency": "CHF",
+      "seriesId": "IRLTLT01CHM156N",
+      "latest": 0.25,
+      "history": [
+        {
+          "date": "2026-02-01",
+          "value": 0.25
+        },
+        {
+          "date": "2026-01-01",
+          "value": 0.27
+        },
+        {
+          "date": "2025-12-01",
+          "value": 0.33
+        },
+        {
+          "date": "2025-11-01",
+          "value": 0.19
+        },
+        {
+          "date": "2025-10-01",
+          "value": 0.18
+        },
+        {
+          "date": "2025-09-01",
+          "value": 0.2
+        },
+        {
+          "date": "2025-08-01",
+          "value": 0.32
+        },
+        {
+          "date": "2025-07-01",
+          "value": 0.378
+        },
+        {
+          "date": "2025-06-01",
+          "value": 0.41
+        },
+        {
+          "date": "2025-05-01",
+          "value": 0.259
+        },
+        {
+          "date": "2025-04-01",
+          "value": 0.326
+        },
+        {
+          "date": "2025-03-01",
+          "value": 0.514
+        },
+        {
+          "date": "2025-02-01",
+          "value": 0.396
+        },
+        {
+          "date": "2025-01-01",
+          "value": 0.383
+        },
+        {
+          "date": "2024-12-01",
+          "value": 0.317
+        },
+        {
+          "date": "2024-11-01",
+          "value": 0.289
+        },
+        {
+          "date": "2024-10-01",
+          "value": 0.451
+        },
+        {
+          "date": "2024-09-01",
+          "value": 0.41
+        },
+        {
+          "date": "2024-08-01",
+          "value": 0.451
+        },
+        {
+          "date": "2024-07-01",
+          "value": 0.45
+        },
+        {
+          "date": "2024-06-01",
+          "value": 0.559
+        },
+        {
+          "date": "2024-05-01",
+          "value": 0.915
+        },
+        {
+          "date": "2024-04-01",
+          "value": 0.693
+        },
+        {
+          "date": "2024-03-01",
+          "value": 0.639
+        },
+        {
+          "date": "2024-02-01",
+          "value": 0.828
+        },
+        {
+          "date": "2024-01-01",
+          "value": 0.83
+        },
+        {
+          "date": "2023-12-01",
+          "value": 0.656
+        },
+        {
+          "date": "2023-11-01",
+          "value": 0.822
+        },
+        {
+          "date": "2023-10-01",
+          "value": 1.046
+        },
+        {
+          "date": "2023-09-01",
+          "value": 1.087
+        },
+        {
+          "date": "2023-08-01",
+          "value": 0.952
+        },
+        {
+          "date": "2023-07-01",
+          "value": 0.979
+        },
+        {
+          "date": "2023-06-01",
+          "value": 0.966
+        },
+        {
+          "date": "2023-05-01",
+          "value": 0.848
+        },
+        {
+          "date": "2023-04-01",
+          "value": 1.08
+        },
+        {
+          "date": "2023-03-01",
+          "value": 1.227
+        },
+        {
+          "date": "2023-02-01",
+          "value": 1.446
+        },
+        {
+          "date": "2023-01-01",
+          "value": 1.257
+        },
+        {
+          "date": "2022-12-01",
+          "value": 1.565
+        },
+        {
+          "date": "2022-11-01",
+          "value": 1.055
+        }
+      ]
+    }
+  ],
+  "spreadHistory": [
+    {
+      "USD": null,
+      "EUR": 2.4,
+      "GBP": null,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": 2.4,
+      "GBP": null,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": 3.82,
+      "EUR": 2.4,
+      "GBP": 3.7281,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": 2.4,
+      "GBP": null,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": 2.4,
+      "GBP": null,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": 3.88,
+      "EUR": 2.4,
+      "GBP": 3.7284,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": 3.96,
+      "EUR": 2.4,
+      "GBP": 3.7282,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": 3.84,
+      "EUR": 2.4,
+      "GBP": 3.7278,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": 3.9,
+      "EUR": 2.4,
+      "GBP": 3.7274,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": 3.83,
+      "EUR": 2.4,
+      "GBP": 3.7274,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": 2.4,
+      "GBP": null,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": 2.4,
+      "GBP": null,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": 3.88,
+      "EUR": 2.4,
+      "GBP": 3.7281,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": 3.79,
+      "EUR": 2.4,
+      "GBP": 3.7294,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": 3.76,
+      "EUR": 2.4,
+      "GBP": 3.7296,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": 3.68,
+      "EUR": 2.4,
+      "GBP": 3.729,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": 3.68,
+      "EUR": 2.4,
+      "GBP": 3.7289,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": 2.4,
+      "GBP": null,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": 2.4,
+      "GBP": null,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": 3.73,
+      "EUR": 2.4,
+      "GBP": 3.7295,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": 3.76,
+      "EUR": 2.4,
+      "GBP": 3.7293,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": 3.64,
+      "EUR": 2.4,
+      "GBP": 3.7295,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": 3.57,
+      "EUR": 2.4,
+      "GBP": 3.7294,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": 3.56,
+      "EUR": 2.4,
+      "GBP": 3.7296,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": 2.4,
+      "GBP": null,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": 2.4,
+      "GBP": null,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": 3.56,
+      "EUR": 2.4,
+      "GBP": 3.7302,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": 3.57,
+      "EUR": 2.4,
+      "GBP": 3.7303,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": 3.54,
+      "EUR": 2.4,
+      "GBP": 3.7301,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": 3.51,
+      "EUR": 2.4,
+      "GBP": 3.7286,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": 3.47,
+      "EUR": 2.4,
+      "GBP": 3.7271,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": 2.4,
+      "GBP": null,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": 2.4,
+      "GBP": null,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": 3.38,
+      "EUR": 2.4,
+      "GBP": 3.7267,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": 3.42,
+      "EUR": 2.4,
+      "GBP": 3.7286,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": 3.45,
+      "EUR": 2.4,
+      "GBP": 3.7276,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": 3.43,
+      "EUR": 2.4,
+      "GBP": 3.7278,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": 3.43,
+      "EUR": 2.4,
+      "GBP": 3.728,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": 2.4,
+      "GBP": null,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": 2.4,
+      "GBP": null,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": 3.48,
+      "EUR": null,
+      "GBP": 3.7282,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": 3.47,
+      "EUR": null,
+      "GBP": 3.7276,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": 3.47,
+      "EUR": null,
+      "GBP": 3.7277,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": 3.43,
+      "EUR": null,
+      "GBP": 3.7276,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": 3.7276,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": 3.4,
+      "EUR": null,
+      "GBP": 3.7267,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": 3.47,
+      "EUR": null,
+      "GBP": 3.7272,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": 3.52,
+      "EUR": null,
+      "GBP": 3.7274,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": 3.45,
+      "EUR": null,
+      "GBP": 3.727,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": 3.48,
+      "EUR": null,
+      "GBP": 3.7271,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": 3.5,
+      "EUR": null,
+      "GBP": 3.7279,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": 3.47,
+      "EUR": null,
+      "GBP": 3.7278,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": 3.57,
+      "EUR": null,
+      "GBP": 3.7265,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": 3.57,
+      "EUR": null,
+      "GBP": 3.726,
+      "JPY": null,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": 4.77,
+      "NZD": null,
+      "CAD": 3.28842105263158,
+      "CHF": 0.25
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": 4.75,
+      "NZD": null,
+      "CAD": 3.40238095238095,
+      "CHF": 0.27
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": 4.719,
+      "NZD": null,
+      "CAD": 3.42266666666667,
+      "CHF": 0.33
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": 4.416,
+      "NZD": null,
+      "CAD": 3.18428571428571,
+      "CHF": 0.19
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": 4.234,
+      "NZD": null,
+      "CAD": 3.12818181818182,
+      "CHF": 0.18
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": 4.298,
+      "NZD": null,
+      "CAD": 3.2245,
+      "CHF": 0.2
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": 4.275,
+      "NZD": null,
+      "CAD": 3.4225,
+      "CHF": 0.32
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": 4.291,
+      "NZD": null,
+      "CAD": 3.48045454545455,
+      "CHF": 0.378
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": 4.208,
+      "NZD": null,
+      "CAD": 3.314,
+      "CHF": 0.41
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": 4.35,
+      "NZD": null,
+      "CAD": 3.22142857142857,
+      "CHF": 0.259
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": 4.267,
+      "NZD": null,
+      "CAD": 3.10857142857143,
+      "CHF": 0.326
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": 4.421,
+      "NZD": null,
+      "CAD": 3.01047619047619,
+      "CHF": 0.514
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": 4.423,
+      "NZD": null,
+      "CAD": 3.05631578947368,
+      "CHF": 0.396
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": 4.481,
+      "NZD": null,
+      "CAD": 3.28863636363636,
+      "CHF": 0.383
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": 4.313,
+      "NZD": 4.33,
+      "CAD": 3.1615,
+      "CHF": 0.317
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": 4.544,
+      "NZD": 4.79,
+      "CAD": 3.2785,
+      "CHF": 0.289
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": 4.267,
+      "NZD": 4.77,
+      "CAD": 3.18636363636364,
+      "CHF": 0.451
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": 3.922,
+      "NZD": 5.21,
+      "CAD": 2.94444444444444,
+      "CHF": 0.41
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": 3.976,
+      "NZD": 5.45,
+      "CAD": 3.0715,
+      "CHF": 0.451
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": 4.326,
+      "NZD": 5.49,
+      "CAD": 3.40772727272727,
+      "CHF": 0.45
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": 4.242,
+      "NZD": 5.52,
+      "CAD": 3.3915,
+      "CHF": 0.559
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": 4.325,
+      "NZD": 5.5,
+      "CAD": 3.64181818181818,
+      "CHF": 0.915
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": 4.268,
+      "NZD": 5.47,
+      "CAD": 3.69590909090909,
+      "CHF": 0.693
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": 4.045,
+      "NZD": 5.38,
+      "CAD": 3.444,
+      "CHF": 0.639
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": 4.141,
+      "NZD": 5.43,
+      "CAD": 3.504,
+      "CHF": 0.828
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": 4.148,
+      "NZD": 5.52,
+      "CAD": 3.34636363636364,
+      "CHF": 0.83
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": 4.187,
+      "NZD": 5.35,
+      "CAD": 3.23421052631579,
+      "CHF": 0.656
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": 4.578,
+      "NZD": 5.43,
+      "CAD": 3.71095238095238,
+      "CHF": 0.822
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": 4.633,
+      "NZD": 5.4,
+      "CAD": 4.062,
+      "CHF": 1.046
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": 4.211,
+      "NZD": 5.39,
+      "CAD": 3.816,
+      "CHF": 1.087
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": 4.128,
+      "NZD": 5.41,
+      "CAD": 3.65409090909091,
+      "CHF": 0.952
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": 4.036,
+      "NZD": 5.47,
+      "CAD": 3.452,
+      "CHF": 0.979
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": 3.916,
+      "NZD": 5.4,
+      "CAD": 3.33818181818182,
+      "CHF": 0.966
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": 3.5,
+      "NZD": 5.34,
+      "CAD": 3.04545454545455,
+      "CHF": 0.848
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": 3.343,
+      "NZD": 5.01,
+      "CAD": 2.91611111111111,
+      "CHF": 1.08
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": 3.468,
+      "NZD": 4.75,
+      "CAD": 2.99347826086957,
+      "CHF": 1.227
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": 3.702,
+      "NZD": 4.2,
+      "CAD": 3.17421052631579,
+      "CHF": 1.446
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": 3.604,
+      "NZD": 4.21,
+      "CAD": 2.93761904761905,
+      "CHF": 1.257
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": 3.551,
+      "NZD": 4.18,
+      "CAD": 2.9415,
+      "CHF": 1.565
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": 3.696,
+      "NZD": 3.55,
+      "CAD": 3.16619047619048,
+      "CHF": 1.055
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": null,
+      "NZD": 3.29,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": null,
+      "NZD": 2.9,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": null,
+      "NZD": 2.78,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": null,
+      "NZD": 2.2,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": null,
+      "NZD": 1.96,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": null,
+      "NZD": 1.53,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": null,
+      "NZD": 1.24,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": null,
+      "NZD": 0.94,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": null,
+      "NZD": 0.73,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": null,
+      "NZD": 0.67,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": null,
+      "NZD": 0.71,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": null,
+      "NZD": 0.54,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": null,
+      "NZD": 0.38,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": null,
+      "AUD": null,
+      "NZD": 0.2,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": 0.3,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": 0.3,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": 0.3,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": 0.3,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": 0.3,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": 0.3,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": 0.3,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": 0.3,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": 0.3,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": 0.3,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": 0.3,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": 0.3,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": 0.3,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": 0.3,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": 0.3,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": 0.3,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": 0.3,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": 0.3,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": 0.3,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": 0.3,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": 0.3,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": 0.3,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": 0.3,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": 0.3,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": 0.3,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": 0.3,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": 0.3,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": 0.3,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": 0.3,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": 0.3,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": 0.3,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": 0.3,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": 0.3,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": 0.3,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": 0.3,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": 0.3,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": 0.3,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": 0.3,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": 0.3,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    },
+    {
+      "USD": null,
+      "EUR": null,
+      "GBP": null,
+      "JPY": 0.3,
+      "AUD": null,
+      "NZD": null,
+      "CAD": null,
+      "CHF": null
+    }
+  ],
+  "buyCandidates": [
+    {
+      "pair": "AUDCHF",
+      "baseCurrency": "AUD",
+      "quoteCurrency": "CHF",
+      "spread": 4.52,
+      "ma20": 4.0239,
+      "weeklyDelta": 0.466,
+      "ma20Signal": "above",
+      "rank": 1
+    },
+    {
+      "pair": "AUDJPY",
+      "baseCurrency": "AUD",
+      "quoteCurrency": "JPY",
+      "spread": 4.47,
+      "ma20": null,
+      "weeklyDelta": null,
+      "ma20Signal": null,
+      "rank": 2
+    },
+    {
+      "pair": "NZDCHF",
+      "baseCurrency": "NZD",
+      "quoteCurrency": "CHF",
+      "spread": 4.08,
+      "ma20": 4.5931,
+      "weeklyDelta": -0.919,
+      "ma20Signal": "below",
+      "rank": 3
+    },
+    {
+      "pair": "NZDJPY",
+      "baseCurrency": "NZD",
+      "quoteCurrency": "JPY",
+      "spread": 4.03,
+      "ma20": null,
+      "weeklyDelta": null,
+      "ma20Signal": null,
+      "rank": 4
+    },
+    {
+      "pair": "USDCHF",
+      "baseCurrency": "USD",
+      "quoteCurrency": "CHF",
+      "spread": 3.57,
+      "ma20": null,
+      "weeklyDelta": null,
+      "ma20Signal": null,
+      "rank": 5
+    },
+    {
+      "pair": "USDJPY",
+      "baseCurrency": "USD",
+      "quoteCurrency": "JPY",
+      "spread": 3.52,
+      "ma20": null,
+      "weeklyDelta": null,
+      "ma20Signal": null,
+      "rank": 6
+    },
+    {
+      "pair": "GBPCHF",
+      "baseCurrency": "GBP",
+      "quoteCurrency": "CHF",
+      "spread": 3.4781,
+      "ma20": null,
+      "weeklyDelta": null,
+      "ma20Signal": null,
+      "rank": 7
+    }
+  ],
+  "sellCandidates": [
+    {
+      "pair": "CHFAUD",
+      "baseCurrency": "CHF",
+      "quoteCurrency": "AUD",
+      "spread": -4.52,
+      "ma20": -4.0239,
+      "weeklyDelta": -0.466,
+      "ma20Signal": "below",
+      "rank": 1
+    },
+    {
+      "pair": "JPYAUD",
+      "baseCurrency": "JPY",
+      "quoteCurrency": "AUD",
+      "spread": -4.47,
+      "ma20": null,
+      "weeklyDelta": null,
+      "ma20Signal": null,
+      "rank": 2
+    },
+    {
+      "pair": "CHFNZD",
+      "baseCurrency": "CHF",
+      "quoteCurrency": "NZD",
+      "spread": -4.08,
+      "ma20": -4.5931,
+      "weeklyDelta": 0.919,
+      "ma20Signal": "above",
+      "rank": 3
+    },
+    {
+      "pair": "JPYNZD",
+      "baseCurrency": "JPY",
+      "quoteCurrency": "NZD",
+      "spread": -4.03,
+      "ma20": null,
+      "weeklyDelta": null,
+      "ma20Signal": null,
+      "rank": 4
+    },
+    {
+      "pair": "CHFUSD",
+      "baseCurrency": "CHF",
+      "quoteCurrency": "USD",
+      "spread": -3.57,
+      "ma20": null,
+      "weeklyDelta": null,
+      "ma20Signal": null,
+      "rank": 5
+    },
+    {
+      "pair": "JPYUSD",
+      "baseCurrency": "JPY",
+      "quoteCurrency": "USD",
+      "spread": -3.52,
+      "ma20": null,
+      "weeklyDelta": null,
+      "ma20Signal": null,
+      "rank": 6
+    },
+    {
+      "pair": "CHFGBP",
+      "baseCurrency": "CHF",
+      "quoteCurrency": "GBP",
+      "spread": -3.4781,
+      "ma20": null,
+      "weeklyDelta": null,
+      "ma20Signal": null,
+      "rank": 7
+    }
+  ],
+  "updatedAt": "2026-04-01T18:03:13.944Z"
+}

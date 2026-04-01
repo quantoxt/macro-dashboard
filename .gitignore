@@ -1,0 +1,10 @@
+node_modules
+.nuxt
+.output
+.claude
+.env
+.impeccable.md
+overview.md
+execution-plan.md
+improvements.md
+frontend-integration-plan.md

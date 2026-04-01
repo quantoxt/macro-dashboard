@@ -1,0 +1,70 @@
+{
+  "instruments": [
+    {
+      "symbol": "XAUUSD",
+      "timeframes": {
+        "1month": 2,
+        "1week": 3,
+        "1day": 0,
+        "4h": 2,
+        "1h": 2
+      },
+      "totalScore": 9,
+      "bias": "Very Bullish",
+      "wait": false
+    },
+    {
+      "symbol": "XAGUSD",
+      "timeframes": {
+        "1month": 2,
+        "1week": 0,
+        "1day": 0,
+        "4h": 2,
+        "1h": 2
+      },
+      "totalScore": 6,
+      "bias": "Bullish",
+      "wait": false
+    },
+    {
+      "symbol": "USDJPY",
+      "timeframes": {
+        "1month": 2,
+        "1week": 1,
+        "1day": -2,
+        "4h": -2,
+        "1h": 1
+      },
+      "totalScore": 0,
+      "bias": "Neutral",
+      "wait": false
+    },
+    {
+      "symbol": "GBPJPY",
+      "timeframes": {
+        "1month": 2,
+        "1week": 2,
+        "1day": -1,
+        "4h": 1,
+        "1h": 2
+      },
+      "totalScore": 6,
+      "bias": "Bullish",
+      "wait": false
+    },
+    {
+      "symbol": "BTCUSD",
+      "timeframes": {
+        "1month": -2,
+        "1week": -2,
+        "1day": 0,
+        "4h": 1,
+        "1h": -1
+      },
+      "totalScore": -4,
+      "bias": "Bearish",
+      "wait": false
+    }
+  ],
+  "updatedAt": "2026-04-01T18:18:28.965Z"
+}
