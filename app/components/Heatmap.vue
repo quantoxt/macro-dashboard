@@ -61,11 +61,11 @@ function isAllZero(row: { scores: Record<string, number>; total: number }) {
           </div>
         </div>
 
-        <div v-else class="overflow-x-auto -mx-3 md:mx-0">
+        <div v-else class="overflow-x-auto -mx-3 md:mx-0 relative -z-10">
         <Table class="min-w-[640px]">
           <TableHeader>
             <TableRow class="hover:bg-transparent border-[var(--border)]">
-              <TableHead class="text-[10px] text-[var(--muted-foreground)] h-7">Instrument</TableHead>
+              <TableHead class="text-[10px] text-[var(--muted-foreground)] h-7 pl-4 md:pl-4">Instrument</TableHead>
               <TableHead
                 v-for="tf in timeframes"
                 :key="tf"
@@ -83,7 +83,7 @@ function isAllZero(row: { scores: Record<string, number>; total: number }) {
               :key="row.instrument"
               class="border-[var(--border)]/40"
             >
-              <TableCell class="font-medium text-sm py-2.5">
+              <TableCell class="font-medium text-sm py-2.5 pl-4 md:pl-4">
                 {{ row.instrument }}
                 <span v-if="row.wait" class="ml-1.5 text-[10px] font-medium text-[var(--accent-warm)]">WAIT</span>
               </TableCell>
