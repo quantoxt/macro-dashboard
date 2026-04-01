@@ -1,7 +1,6 @@
-import { readStorage, writeStorage } from '../../utils/storage'
-import { INSTRUMENTS, fetchAllTimeframes } from '../../utils/yahoo'
-import type { Timeframe } from '../../utils/yahoo'
-import { scoreTimeframe, classifyBias, shouldWait } from '../../utils/calculations'
+import { INSTRUMENTS, fetchAllTimeframes } from './yahoo'
+import type { Timeframe } from './yahoo'
+import { scoreTimeframe, classifyBias, shouldWait } from './calculations'
 
 interface HeatmapInstrument {
   symbol: string
@@ -11,9 +10,24 @@ interface HeatmapInstrument {
   wait: boolean
 }
 
-export default defineEventHandler(async () => {
-  console.log('[Cron] Updating heatmap...')
+// In-memory cache
+let cache: {
+  instruments: HeatmapInstrument[]
+  updatedAt: string | null
+} | null = null
 
+let lastFetch = 0
+const CACHE_TTL = 15 * 60 * 1000 // 15 minutes
+
+export async function getHeatmapData() {
+  const now = Date.now()
+
+  // Return cached data if still fresh
+  if (cache && cache.updatedAt && (now - lastFetch) < CACHE_TTL) {
+    return cache
+  }
+
+  // Fetch fresh data
   const instruments: HeatmapInstrument[] = []
 
   for (const inst of INSTRUMENTS) {
@@ -56,7 +70,7 @@ export default defineEventHandler(async () => {
         wait,
       })
 
-      // Small gap between instruments
+      // Small gap between instruments to avoid rate limits
       await new Promise(r => setTimeout(r, 1000))
     }
     catch (err) {
@@ -71,14 +85,12 @@ export default defineEventHandler(async () => {
     }
   }
 
-  const payload = {
+  cache = {
     instruments,
     updatedAt: new Date().toISOString(),
   }
+  lastFetch = now
 
-  await writeStorage('heatmap-cache.json', payload)
-
-  console.log(`[Cron] Heatmap updated: ${instruments.length} instruments scored`)
-
-  return payload
-})
+  console.log(`[Heatmap] Data refreshed: ${instruments.length} instruments scored`)
+  return cache
+}
