@@ -49,7 +49,7 @@ function isAllZero(row: { scores: Record<string, number>; total: number }) {
       Failed to load heatmap data. Retrying...
     </div>
 
-    <Card class="shadow-none py-3 isolate">
+    <Card class="shadow-none py-3 isolate overflow-hidden">
       <CardContent class="px-3 md:px-5 -mx-1">
         <!-- Skeleton -->
         <div v-if="pending" class="space-y-3">
