@@ -6,68 +6,58 @@
 
 @layer base {
   :root {
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    /* Warm neutrals — stone, not concrete (chroma 0.012 for warmth) */
-    --background: oklch(0.115 0.012 60);
-    --foreground: oklch(0.94 0.008 60);
+    /* Deep dark — slight blue undertone for atmospheric depth */
+    --background: oklch(0.07 0.016 270);
+    --foreground: oklch(0.93 0.008 250);
 
-    --card: oklch(0.15 0.014 60);
-    --card-foreground: oklch(0.94 0.008 60);
+    /* Card surface — dark enough for contrast, used as fallback */
+    --card: oklch(0.12 0.016 270);
+    --card-foreground: oklch(0.93 0.008 250);
 
-    --popover: oklch(0.15 0.014 60);
-    --popover-foreground: oklch(0.94 0.008 60);
+    --popover: oklch(0.14 0.016 270);
+    --popover-foreground: oklch(0.93 0.008 250);
 
-    --primary: oklch(0.94 0.008 60);
-    --primary-foreground: oklch(0.115 0.012 60);
+    --primary: oklch(0.75 0.16 75);
+    --primary-foreground: oklch(0.07 0.016 270);
 
-    --secondary: oklch(0.19 0.014 60);
-    --secondary-foreground: oklch(0.94 0.008 60);
+    --secondary: oklch(0.17 0.018 270);
+    --secondary-foreground: oklch(0.93 0.008 250);
 
-    --muted: oklch(0.19 0.014 60);
-    --muted-foreground: oklch(0.55 0.018 60);
+    --muted: oklch(0.17 0.018 270);
+    --muted-foreground: oklch(0.55 0.02 250);
 
-    --accent: oklch(0.23 0.014 60);
-    --accent-foreground: oklch(0.94 0.008 60);
+    --accent: oklch(0.20 0.020 270);
+    --accent-foreground: oklch(0.93 0.008 250);
 
-    --destructive: oklch(0.55 0.22 25);
+    --destructive: oklch(0.58 0.22 25);
 
-    --border: oklch(0.20 0.012 60);
-    --input: oklch(0.20 0.012 60);
-    --ring: oklch(0.45 0.015 60);
-
-    --chart-1: oklch(0.60 0.015 60);
-    --chart-2: oklch(0.60 0.18 25);
-    --chart-3: oklch(0.65 0.15 150);
-    --chart-4: oklch(0.75 0.13 85);
-    --chart-5: oklch(0.65 0.13 250);
-
-    --sidebar-background: oklch(0.115 0.012 60);
-    --sidebar-foreground: oklch(0.94 0.008 60);
-    --sidebar-primary: oklch(0.94 0.008 60);
-    --sidebar-primary-foreground: oklch(0.115 0.012 60);
-    --sidebar-accent: oklch(0.23 0.014 60);
-    --sidebar-accent-foreground: oklch(0.94 0.008 60);
-    --sidebar-border: oklch(0.20 0.012 60);
-    --sidebar-ring: oklch(0.45 0.015 60);
+    --border: oklch(0.18 0.014 270);
+    --input: oklch(0.18 0.014 270);
+    --ring: oklch(0.70 0.16 75);
 
     /* Amber brand accent — market warmth */
-    --accent-warm: oklch(0.72 0.14 75);
-    --accent-warm-muted: oklch(0.22 0.025 75);
+    --accent-warm: oklch(0.75 0.16 75);
+    --accent-warm-muted: oklch(0.18 0.03 75);
 
-    /* Signal colors — alive against warm surfaces */
-    --bullish: oklch(0.68 0.17 155);
-    --bearish: oklch(0.60 0.20 25);
-    --signal-neutral: oklch(0.23 0.014 60);
-    --bullish-muted: oklch(0.22 0.035 150);
-    --bearish-muted: oklch(0.22 0.04 25);
+    /* Signal colors */
+    --bullish: oklch(0.70 0.17 155);
+    --bearish: oklch(0.62 0.22 25);
+    --bullish-muted: oklch(0.18 0.04 150);
+    --bearish-muted: oklch(0.18 0.04 25);
 
-    /* Heatmap score cells — warmer tints */
-    --score-strong-bull: oklch(0.30 0.08 150);
-    --score-bull: oklch(0.21 0.04 150);
-    --score-neutral: oklch(0.17 0.014 60);
-    --score-bear: oklch(0.21 0.04 25);
-    --score-strong-bear: oklch(0.30 0.08 25);
+    /* Heatmap score cells — tinted glass */
+    --score-strong-bull: oklch(0.28 0.08 150);
+    --score-bull: oklch(0.20 0.04 150);
+    --score-neutral: oklch(0.15 0.014 270);
+    --score-bear: oklch(0.20 0.04 25);
+    --score-strong-bear: oklch(0.28 0.08 25);
+
+    /* Text hierarchy */
+    --text-primary: #e2e8f0;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
   }
 }
 
@@ -75,8 +65,9 @@
   body {
     background-color: var(--background);
     color: var(--foreground);
-    font-family: 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, sans-serif;
+    font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
     font-kerning: normal;
+    overflow-x: hidden;
   }
 }
 
@@ -85,11 +76,97 @@
   font-variant-numeric: tabular-nums;
 }
 
+/* ========================================
+   GLASS SURFACES — unlayered for precedence over Tailwind utilities
+   ======================================== */
+
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-color: rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.glass-subtle {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-color: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.glass:hover {
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.25);
+  transform: translateY(-1px);
+}
+
+.glass-header {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+/* ========================================
+   SIGNAL GLOW EFFECTS
+   ======================================== */
+
+.glow-bullish { box-shadow: 0 0 20px rgba(16, 185, 129, 0.12); }
+.glow-bearish { box-shadow: 0 0 20px rgba(239, 68, 68, 0.12); }
+.glow-bullish-strong { box-shadow: 0 0 30px rgba(16, 185, 129, 0.2), 0 0 60px rgba(16, 185, 129, 0.08); }
+.glow-bearish-strong { box-shadow: 0 0 30px rgba(239, 68, 68, 0.2), 0 0 60px rgba(239, 68, 68, 0.08); }
+
+/* ========================================
+   GRADIENT TEXT
+   ======================================== */
+
+.text-gradient-heading {
+  background: linear-gradient(135deg, #e2e8f0, #94a3b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-bullish {
+  background: linear-gradient(135deg, #10b981, #34d399);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-bearish {
+  background: linear-gradient(135deg, #ef4444, #f87171);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ========================================
+   GRADIENT BORDERS
+   ======================================== */
+
+.border-gradient-bullish {
+  border-image: linear-gradient(135deg, rgba(16, 185, 129, 0.3), rgba(16, 185, 129, 0.05)) 1;
+}
+
+.border-gradient-bearish {
+  border-image: linear-gradient(135deg, rgba(239, 68, 68, 0.3), rgba(239, 68, 68, 0.05)) 1;
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
 /* Entrance choreography */
 @keyframes fadeSlideIn {
   from {
     opacity: 0;
-    transform: translateY(6px);
+    transform: translateY(8px);
   }
   to {
     opacity: 1;
@@ -99,15 +176,62 @@
 
 .anim-in {
   opacity: 0;
-  animation: fadeSlideIn 400ms cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation: fadeSlideIn 500ms cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
-.anim-delay-1 { animation-delay: 100ms; }
-.anim-delay-2 { animation-delay: 250ms; }
-.anim-delay-3 { animation-delay: 400ms; }
+.anim-delay-1 { animation-delay: 80ms; }
+.anim-delay-2 { animation-delay: 160ms; }
+.anim-delay-3 { animation-delay: 240ms; }
+.anim-delay-4 { animation-delay: 320ms; }
+.anim-delay-5 { animation-delay: 400ms; }
+
+/* Shimmer loading */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, transparent 25%, rgba(255, 255, 255, 0.03) 50%, transparent 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+/* Signal pulse */
+@keyframes signalPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.signal-pulse {
+  animation: signalPulse 2s ease-in-out infinite;
+}
+
+/* Live indicator pulse */
+@keyframes livePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.live-pulse {
+  animation: livePulse 2s ease-in-out infinite;
+}
+
+/* Count-up placeholder */
+@keyframes countUp {
+  from { opacity: 0.3; }
+  to { opacity: 1; }
+}
+
+.count-up {
+  animation: countUp 600ms ease-out forwards;
+}
 
 @media (prefers-reduced-motion: reduce) {
-  .anim-in {
+  .anim-in,
+  .signal-pulse,
+  .live-pulse,
+  .shimmer {
     opacity: 1;
     animation: none;
   }

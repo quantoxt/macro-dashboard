@@ -1,4 +1,5 @@
 node_modules
+human-forex
 .nuxt
 .output
 .claude
@@ -8,3 +9,6 @@ overview.md
 execution-plan.md
 improvements.md
 frontend-integration-plan.md
+book-gold.md
+dream.md
+overview-v2.md
