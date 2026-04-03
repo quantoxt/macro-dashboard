@@ -1,14 +1,10 @@
 node_modules
 human-forex
+v1
+v2
+resources
 .nuxt
 .output
 .claude
 .env
 .impeccable.md
-overview.md
-execution-plan.md
-improvements.md
-frontend-integration-plan.md
-book-gold.md
-dream.md
-overview-v2.md

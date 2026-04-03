@@ -31,7 +31,7 @@ useHead({
   meta: [
     { name: 'description', content: 'Forex macro confluence dashboard — yield spreads, multi-timeframe scoring, and institutional-grade market analysis.' },
     { name: 'theme-color', content: '#07070d' },
-    { name: 'color-scheme', content: 'dark' },
+    { name: 'color-scheme', content: 'dark light' },
     { property: 'og:title', content: 'Macro Dashboard' },
     { property: 'og:description', content: 'Forex macro confluence dashboard — yield spreads, multi-timeframe scoring, and institutional-grade market analysis.' },
     { property: 'og:type', content: 'website' },
@@ -39,5 +39,24 @@ useHead({
   link: [
     { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
   ],
+  script: [
+    {
+      innerHTML: `(function(){try{var t=localStorage.getItem('macro-dashboard-theme');var d=document.documentElement;if(t==='light'){d.classList.add('light')}else if(t==='dark'){d.classList.add('dark')}else if(window.matchMedia('(prefers-color-scheme:light)').matches){d.classList.add('light')}else{d.classList.add('dark')}d.setAttribute('data-theme',d.classList.contains('light')?'light':'dark');var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',d.classList.contains('light')?'#f4f5f9':'#07070d')}catch(e){}})()`,
+      type: 'text/javascript',
+      tagPosition: 'head',
+    },
+  ],
 })
 </script>
+<style>
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.5s;
+}
+
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(10%);
+}
+</style>

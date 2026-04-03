@@ -4,9 +4,9 @@ import { useMarketPulse } from '@/composables/useMarketPulse'
 const { pulse, pending, error } = useMarketPulse()
 
 const regimeColors: Record<string, string> = {
-  'risk-on': 'text-[var(--bullish)] bg-[rgba(16,185,129,0.1)]',
-  'risk-off': 'text-[var(--bearish)] bg-[rgba(239,68,68,0.1)]',
-  'neutral': 'text-[var(--accent-warm)] bg-[rgba(245,158,11,0.1)]',
+  'risk-on': 'text-[var(--bullish)] bg-[var(--badge-buy)]',
+  'risk-off': 'text-[var(--bearish)] bg-[var(--badge-sell)]',
+  'neutral': 'text-[var(--accent-warm)] bg-[var(--badge-warn)]',
 }
 
 const volatilityColors: Record<string, string> = {
@@ -23,15 +23,15 @@ const volatilityColors: Record<string, string> = {
       Market Pulse
     </h2>
 
-    <div v-if="error" class="text-[var(--bearish)] text-xs p-4 rounded-xl border border-[rgba(239,68,68,0.15)]">
+    <div v-if="error" class="text-[var(--bearish)] text-xs p-4 rounded-xl border border-[var(--border-sell)]">
       Failed to load market data.
     </div>
 
-    <div v-else-if="pending" class="rounded-xl shimmer border border-[rgba(255,255,255,0.04)] h-[280px]" />
+    <div v-else-if="pending" class="rounded-xl shimmer border border-[var(--surface-skeleton)] h-[280px]" />
 
     <div
       v-else
-      class="border border-[rgba(255,255,255,0.07)] rounded-xl bg-[rgba(7,7,13,0.5)] px-5 py-5 space-y-4 transition-colors duration-200 hover:border-[rgba(255,255,255,0.12)]"
+      class="border border-[var(--surface-border)] rounded-xl bg-[var(--surface)] px-5 py-5 space-y-4 transition-colors duration-200 hover:border-[var(--surface-border-hover)]"
     >
       <!-- Session -->
       <div class="flex items-center justify-between">
@@ -42,7 +42,7 @@ const volatilityColors: Record<string, string> = {
         </div>
       </div>
 
-      <div class="h-px bg-[rgba(255,255,255,0.05)]" />
+      <div class="h-px bg-[var(--separator-subtle)]" />
 
       <!-- Regime -->
       <div class="flex items-center justify-between">
@@ -58,7 +58,7 @@ const volatilityColors: Record<string, string> = {
         </div>
       </div>
 
-      <div class="h-px bg-[rgba(255,255,255,0.05)]" />
+      <div class="h-px bg-[var(--separator-subtle)]" />
 
       <!-- Volatility -->
       <div class="flex items-center justify-between">
@@ -71,7 +71,7 @@ const volatilityColors: Record<string, string> = {
         </div>
       </div>
 
-      <div class="h-px bg-[rgba(255,255,255,0.05)]" />
+      <div class="h-px bg-[var(--separator-subtle)]" />
 
       <!-- News + Consolidation -->
       <div class="flex items-center justify-between">
@@ -79,7 +79,7 @@ const volatilityColors: Record<string, string> = {
         <div class="flex items-center gap-2">
           <span
             v-if="pulse.newsWarnings > 0"
-            class="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-medium bg-[rgba(245,158,11,0.1)] text-[var(--accent-warm)]"
+            class="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-medium bg-[var(--badge-warn)] text-[var(--accent-warm)]"
           >
             {{ pulse.newsWarnings }} news
           </span>
@@ -89,7 +89,7 @@ const volatilityColors: Record<string, string> = {
         </div>
       </div>
 
-      <div class="h-px bg-[rgba(255,255,255,0.05)]" />
+      <div class="h-px bg-[var(--separator-subtle)]" />
 
       <!-- Next Event -->
       <div class="flex items-center justify-between">

@@ -11,23 +11,42 @@ export interface MarketPulse {
   nextEventTime: string
 }
 
-const MOCK_PULSE: MarketPulse = {
-  session: 'London / New York',
-  sessionTime: '14:00–17:00 UTC',
-  regime: 'risk-on',
-  regimeConfidence: 72,
-  volatilityIndex: 18.4,
-  volatilityLabel: 'Moderate',
-  newsWarnings: 2,
-  consolidationPairs: ['USD/CHF', 'EUR/GBP'],
-  nextEvent: 'US ISM Manufacturing PMI',
-  nextEventTime: '15:00 UTC',
-}
-
 export function useMarketPulse() {
-  const pulse = ref<MarketPulse>(MOCK_PULSE)
-  const pending = ref(false)
-  const error = ref<Error | null>(null)
+  const pulse = ref<MarketPulse | null>(null)
+  const pending = ref(true)
+  const error = ref<string | null>(null)
+  let intervalId: ReturnType<typeof setInterval> | null = null
 
-  return { pulse, pending, error }
+  async function refresh() {
+    try {
+      const res: MarketPulse & { error?: string } = await $fetch('/api/market-pulse')
+
+      if (!res || res.error) {
+        error.value = res?.error || 'Failed to load market pulse'
+        pulse.value = null
+      }
+      else {
+        pulse.value = res
+        error.value = null
+      }
+    }
+    catch (err: any) {
+      error.value = 'Signal engine unavailable'
+      pulse.value = null
+    }
+    finally {
+      pending.value = false
+    }
+  }
+
+  onMounted(() => {
+    refresh()
+    intervalId = setInterval(refresh, 2.5 * 60 * 1000)
+  })
+
+  onScopeDispose(() => {
+    if (intervalId) clearInterval(intervalId)
+  })
+
+  return { pulse, pending, error, refresh }
 }

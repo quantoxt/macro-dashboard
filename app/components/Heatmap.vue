@@ -18,11 +18,11 @@ function scoreBg(score: number): string {
 
 function biasClass(bias: string): string {
   switch (bias) {
-    case 'Very Bullish': return 'bg-[rgba(16,185,129,0.12)] text-[var(--bullish)]'
-    case 'Bullish': return 'bg-[rgba(16,185,129,0.08)] text-[var(--bullish)]'
-    case 'Neutral': return 'bg-[rgba(255,255,255,0.04)] text-[var(--muted-foreground)]'
-    case 'Bearish': return 'bg-[rgba(239,68,68,0.08)] text-[var(--bearish)]'
-    case 'Very Bearish': return 'bg-[rgba(239,68,68,0.12)] text-[var(--bearish)]'
+    case 'Very Bullish': return 'bg-[var(--badge-buy)] text-[var(--bullish)]'
+    case 'Bullish': return 'bg-[var(--badge-bullish)] text-[var(--bullish)]'
+    case 'Neutral': return 'bg-[var(--surface-skeleton)] text-[var(--muted-foreground)]'
+    case 'Bearish': return 'bg-[var(--badge-bearish)] text-[var(--bearish)]'
+    case 'Very Bearish': return 'bg-[var(--badge-sell)] text-[var(--bearish)]'
     default: return ''
   }
 }
@@ -43,18 +43,18 @@ function isAllZero(row: { scores: Record<string, number>; total: number }) {
       Multi-Timeframe Scoring
     </h2>
 
-    <div v-if="error" class="text-[var(--bearish)] text-xs p-4 rounded-xl border border-[rgba(239,68,68,0.15)]">
+    <div v-if="error" class="text-[var(--bearish)] text-xs p-4 rounded-xl border border-[var(--border-sell)]">
       Failed to load heatmap data. Retrying...
     </div>
 
     <!-- Skeleton -->
-    <div v-else-if="pending" class="rounded-xl border border-[rgba(255,255,255,0.07)] bg-[rgba(7,7,13,0.5)] p-5">
+    <div v-else-if="pending" class="rounded-xl border border-[var(--surface-border)] bg-[var(--surface)] p-5">
       <div class="space-y-3">
         <div v-for="i in 8" :key="i" class="flex items-center gap-2">
-          <div class="h-8 w-20 rounded-lg bg-[rgba(255,255,255,0.04)] shimmer" />
-          <div v-for="j in 5" :key="j" class="h-9 w-9 rounded-lg bg-[rgba(255,255,255,0.04)] shimmer" />
-          <div class="h-8 w-10 rounded-lg bg-[rgba(255,255,255,0.04)] shimmer" />
-          <div class="h-7 w-20 rounded-lg bg-[rgba(255,255,255,0.04)] shimmer" />
+          <div class="h-8 w-20 rounded-lg bg-[var(--surface-skeleton)] shimmer" />
+          <div v-for="j in 5" :key="j" class="h-9 w-9 rounded-lg bg-[var(--surface-skeleton)] shimmer" />
+          <div class="h-8 w-10 rounded-lg bg-[var(--surface-skeleton)] shimmer" />
+          <div class="h-7 w-20 rounded-lg bg-[var(--surface-skeleton)] shimmer" />
         </div>
       </div>
     </div>
@@ -62,12 +62,12 @@ function isAllZero(row: { scores: Record<string, number>; total: number }) {
     <!-- Table -->
     <div
       v-else
-      class="border border-[rgba(255,255,255,0.07)] rounded-xl bg-[rgba(7,7,13,0.5)] py-4 overflow-hidden transition-colors duration-200 hover:border-[rgba(255,255,255,0.12)]"
+      class="border border-[var(--surface-border)] rounded-xl bg-[var(--surface)] py-4 overflow-hidden transition-colors duration-200 hover:border-[var(--surface-border-hover)]"
     >
       <div class="overflow-x-auto">
         <Table class="min-w-[640px]">
           <TableHeader>
-            <TableRow class="hover:bg-transparent border-[rgba(255,255,255,0.05)]">
+            <TableRow class="hover:bg-transparent border-[var(--table-header-border)]">
               <TableHead class="text-[10px] text-[var(--muted-foreground)] h-7 pl-5">Instrument</TableHead>
               <TableHead
                 v-for="tf in timeframes"
@@ -84,7 +84,7 @@ function isAllZero(row: { scores: Record<string, number>; total: number }) {
             <TableRow
               v-for="row in instruments"
               :key="row.instrument"
-              class="border-[rgba(255,255,255,0.03)] transition-colors duration-200 hover:bg-[rgba(255,255,255,0.03)]"
+              class="border-[var(--table-row-border)] transition-colors duration-200 hover:bg-[var(--row-hover)]"
             >
               <TableCell class="font-medium text-sm py-2.5 pl-5">
                 {{ row.instrument }}
@@ -130,7 +130,7 @@ function isAllZero(row: { scores: Record<string, number>; total: number }) {
                 </span>
                 <span
                   v-else
-                  class="inline-flex items-center justify-center px-3 py-1 rounded-lg text-[10px] text-[var(--muted-foreground)] bg-[rgba(255,255,255,0.03)]"
+                  class="inline-flex items-center justify-center px-3 py-1 rounded-lg text-[10px] text-[var(--muted-foreground)] bg-[var(--separator-faint)]"
                 >
                   No data
                 </span>

@@ -10,7 +10,7 @@
           <MarketPulse />
         </div>
         <div class="anim-in anim-delay-3">
-          <StrategyPerformance />
+          <SignalPerformance />
         </div>
       </div>
     </div>
