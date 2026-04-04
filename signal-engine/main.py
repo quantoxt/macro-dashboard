@@ -184,9 +184,10 @@ if __name__ == "__main__":
     import uvicorn
 
     config = get_config()
+    port = int(os.environ.get("PORT", config.port))
     uvicorn.run(
         "main:app",
         host=config.host,
-        port=config.port,
-        reload=True,
+        port=port,
+        reload=False,
     )
