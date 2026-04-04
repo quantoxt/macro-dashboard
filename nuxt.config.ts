@@ -19,5 +19,10 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     fredApiKey: '',
+    signalEngineUrl: 'http://localhost:8081',
+  },
+
+  app: {
+    pageTransition: { name: "page", mode: "out-in" },
   },
 })

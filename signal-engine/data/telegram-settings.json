@@ -1,0 +1,37 @@
+{
+  "parse_mode": "markdown",
+  "batch_window": 30,
+  "outcome_alerts": true,
+  "outcome_win": true,
+  "outcome_loss": true,
+  "outcome_expired": true,
+  "quiet_hours_enabled": false,
+  "quiet_hours_start": "23:00",
+  "quiet_hours_end": "07:00",
+  "quiet_hours_timezone": "Africa/Lagos",
+  "cooldown_enabled": false,
+  "cooldown_hours": 1.0,
+  "daily_summary_enabled": true,
+  "daily_summary_time": "18:00",
+  "tradingview_links": true,
+  "instrument_notifications": {
+    "XAUUSD": true,
+    "XAGUSD": true,
+    "USDJPY": true,
+    "GBPJPY": true,
+    "BTCUSD": true
+  },
+  "strategy_notifications": {
+    "confluence_breakout": true,
+    "mean_reversion": true,
+    "momentum_shift": true
+  },
+  "min_confidence": 0,
+  "chats": [
+    {
+      "id": "8358014901",
+      "label": "Primary",
+      "enabled": true
+    }
+  ]
+}
