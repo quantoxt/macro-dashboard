@@ -16,8 +16,13 @@ from strategies.base import Signal
 
 logger = logging.getLogger(__name__)
 
-# Max age for a pending signal before it expires (hours)
-MAX_PENDING_HOURS = 48
+# Max age for an active signal before it expires, by timeframe
+MAX_ACTIVE_HOURS: dict[str, int] = {"H1": 8, "H4": 24, "D1": 48}
+DEFAULT_MAX_ACTIVE_HOURS = 12
+
+# If max adverse excursion exceeds this fraction of total risk, signal is expired
+# even if SL wasn't hit — the trade thesis is broken
+ADVERSE_EXPIRY_FRACTION = 0.80
 
 
 class SignalTracker:
@@ -33,7 +38,7 @@ class SignalTracker:
     async def check_pending_signals(self) -> int:
         """Check all pending signals against current prices.
 
-        Returns the number of signals checked.
+        Returns the number of signals resolved.
         """
         pending = self.storage.get_pending()
         if not pending:
@@ -45,10 +50,10 @@ class SignalTracker:
             by_instrument.setdefault(ts.instrument, []).append(ts)
 
         checked = 0
+        config = get_config()
 
         for instrument, signals in by_instrument.items():
             try:
-                config = get_config()
                 inst = config.get_instrument(instrument)
 
                 # Fetch latest H1 candle
@@ -61,11 +66,32 @@ class SignalTracker:
                 current_close = df["close"].iloc[-1]
 
                 for ts in signals:
-                    resolved = self._check_signal(
+                    resolved, outcome, pnl = self._check_signal(
                         ts, current_high, current_low, current_close, inst.pip_size
                     )
                     if resolved:
                         checked += 1
+
+                        # Send outcome notification via Telegram
+                        if config.notifier_outcome_alerts:
+                            try:
+                                from notifier.telegram import get_notifier
+                                notifier = get_notifier()
+                                if notifier is not None:
+                                    sig_dict = {
+                                        "instrument": ts.instrument,
+                                        "direction": ts.direction,
+                                        "strategy": ts.strategy,
+                                        "riskReward": ts.risk_reward,
+                                        "signal_ref": ts.signal_ref,
+                                        "userStatus": ts.user_status,
+                                        "notes": ts.notes,
+                                        "manualEntry": ts.manual_entry,
+                                        "manualExit": ts.manual_exit,
+                                    }
+                                    await notifier.send_outcome(sig_dict, outcome, pnl)
+                            except Exception as exc:
+                                logger.debug("Outcome notification failed: %s", exc)
 
             except Exception as exc:
                 logger.error("Tracker check failed for %s: %s", instrument, exc)
@@ -79,31 +105,60 @@ class SignalTracker:
         current_low: float,
         current_close: float,
         pip_size: float,
-    ) -> bool:
+    ) -> tuple[bool, str | None, float | None]:
         """Check a single signal against current price.
 
-        Returns True if the signal was resolved (WIN/LOSS/EXPIRED).
+        Returns (resolved, outcome, pnl_pips).
+        resolved is True if the signal was resolved (WIN/LOSS/EXPIRED).
         """
         now = datetime.now(timezone.utc)
 
-        # Check expiration first
+        # --- Expiry checks (before TP/SL) ---
+
+        # 1) Time-based expiry per timeframe
         try:
             gen_time = datetime.fromisoformat(ts.generated_at)
-            if (now - gen_time) > timedelta(hours=MAX_PENDING_HOURS):
+            max_hours = MAX_ACTIVE_HOURS.get(ts.timeframe, DEFAULT_MAX_ACTIVE_HOURS)
+            if (now - gen_time) > timedelta(hours=max_hours):
                 pnl = self._calc_pnl(ts, current_close, pip_size)
                 self.storage.update_outcome(
                     ts.id,
                     outcome="EXPIRED",
                     exit_price=current_close,
-                    exit_reason="EXPIRED",
+                    exit_reason="EXPIRED_TIME",
                     pnl_pips=pnl,
                     max_favorable=ts.max_favorable,
                     max_adverse=ts.max_adverse,
                 )
-                logger.info("Signal expired: %s %s", ts.instrument, ts.direction)
-                return True
+                logger.info(
+                    "Signal expired (time): %s %s [%s, %dh old]",
+                    ts.instrument, ts.direction, ts.timeframe, max_hours,
+                )
+                return True, "EXPIRED", pnl
         except (ValueError, TypeError):
             pass
+
+        # 2) Adverse drift expiry — price moved past 80% of risk without hitting SL
+        #    The trade thesis is broken even if SL wasn't tagged exactly.
+        total_risk = abs(ts.entry - ts.stop_loss) / pip_size
+        if total_risk > 0:
+            adverse_pct = (ts.max_adverse or 0) / total_risk
+            if adverse_pct >= ADVERSE_EXPIRY_FRACTION:
+                pnl = self._calc_pnl(ts, current_close, pip_size)
+                self.storage.update_outcome(
+                    ts.id,
+                    outcome="EXPIRED",
+                    exit_price=current_close,
+                    exit_reason="EXPIRED_ADVERSE",
+                    pnl_pips=pnl,
+                    max_favorable=ts.max_favorable,
+                    max_adverse=ts.max_adverse,
+                )
+                logger.info(
+                    "Signal expired (adverse drift %.0f%%): %s %s",
+                    adverse_pct * 100, ts.instrument, ts.direction,
+                )
+                return True, "EXPIRED", pnl
 
         # Check TP/SL hit
         hit_tp = False
@@ -143,6 +198,7 @@ class SignalTracker:
                     ts.id, "WIN", exit_price, "TAKE_PROFIT", pnl
                 )
                 logger.info("Signal WIN: %s %s (+%.1f pips)", ts.instrument, ts.direction, pnl)
+                return True, "WIN", pnl
             else:
                 exit_price = ts.stop_loss
                 pnl = self._calc_pnl(ts, exit_price, pip_size)
@@ -150,10 +206,9 @@ class SignalTracker:
                     ts.id, "LOSS", exit_price, "STOP_LOSS", pnl
                 )
                 logger.info("Signal LOSS: %s %s (%.1f pips)", ts.instrument, ts.direction, pnl)
+                return True, "LOSS", pnl
 
-            return True
-
-        return False
+        return False, None, None
 
     def _calc_pnl(self, ts: TrackedSignal, exit_price: float, pip_size: float) -> float:
         """Calculate P&L in pips."""

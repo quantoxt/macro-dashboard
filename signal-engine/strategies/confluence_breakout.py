@@ -164,6 +164,18 @@ class ConfluenceBreakout(BaseStrategy):
             confirmations["No consolidation detected"] = True
             reasons.append("No consolidation detected")
 
+        # Z-Score confluence
+        zs_ok, zs_reason = self.check_zscore_confluence(h1_df, direction)
+        if zs_ok:
+            confirmations["Z-Score confirms"] = True
+            reasons.append(zs_reason)
+
+        # Volume absorption confluence
+        absorbed, abs_reason = self.check_volume_absorption(h1_df, direction)
+        if absorbed:
+            confirmations["Volume absorption"] = True
+            reasons.append(abs_reason)
+
         # --- Step 7: Confidence scoring ---
         base_confidence = 50
 
@@ -181,6 +193,24 @@ class ConfluenceBreakout(BaseStrategy):
             base_confidence += 5
         if consolidation.is_consolidating and breakout_dir == direction:
             base_confidence += params.consolidation_boost
+        if confirmations.get("Z-Score confirms"):
+            base_confidence += 5
+        if confirmations.get("Volume absorption"):
+            base_confidence += 10
+
+        # Trend hierarchy confluence
+        _, trend_reason, trend_adj = self.check_trend_hierarchy(h1_df, direction)
+        if trend_reason:
+            reasons.append(trend_reason)
+        base_confidence += trend_adj
+
+        # Consecutive ATR expansion (breakout momentum)
+        if params.consecutive_bar_enabled:
+            from indicators.technical import consecutive_extreme
+            atr_diff = atr(h1_df, 14).diff()
+            if consecutive_extreme(atr_diff, 0, "above", bars=params.consecutive_bar_count):
+                base_confidence += 5
+                reasons.append(f"ATR expanding {params.consecutive_bar_count} bars")
 
         # Calculate confluence-adjusted confidence
         confidence, confluence_reasons = self.calculate_confluence_score(

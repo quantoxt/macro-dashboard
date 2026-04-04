@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useActiveSignals } from '~/composables/useActiveSignals'
+import type { ActiveSignal } from '~/composables/useActiveSignals'
 
 const { signals, pending, error } = useActiveSignals()
 
@@ -23,6 +24,25 @@ function toggle(key: string) {
     expanded.value.delete(key)
   else
     expanded.value.add(key)
+}
+
+function relativeTime(iso: string): string {
+  if (!iso) return ''
+  const diff = Date.now() - new Date(iso).getTime()
+  const mins = Math.floor(diff / 60000)
+  const hours = Math.floor(diff / 3600000)
+  if (mins < 1) return 'just now'
+  if (mins < 60) return `${mins}m`
+  if (hours < 24) return `${hours}h`
+  return `${Math.floor(hours / 24)}d`
+}
+
+function getExpiryPercent(signal: ActiveSignal): number {
+  if (!signal.generatedAt || !signal.timeframe) return 0
+  const limits: Record<string, number> = { H1: 8, H4: 24, D1: 48 }
+  const limit = limits[signal.timeframe] || 48
+  const elapsed = (Date.now() - new Date(signal.generatedAt).getTime()) / 3600000
+  return Math.min(100, (elapsed / limit) * 100)
 }
 </script>
 
@@ -88,6 +108,15 @@ function toggle(key: string) {
                 :class="signal.confidence >= 80 ? 'text-[var(--bullish)]' : signal.confidence >= 60 ? 'text-[var(--accent-warm)]' : 'text-[var(--muted-foreground)]'"
               >
                 {{ signal.confidence }}%
+              </span>
+              <span class="text-[9px] text-[var(--muted-foreground)]">
+                {{ relativeTime(signal.generatedAt) }}
+              </span>
+              <span
+                v-if="signal.generatedAt && getExpiryPercent(signal) > 70"
+                class="text-[8px] px-1 py-0.5 rounded bg-[var(--accent-warm-muted)] text-[var(--accent-warm)]"
+              >
+                expiring
               </span>
             </div>
           </div>

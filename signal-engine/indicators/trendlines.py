@@ -146,3 +146,54 @@ def check_zone_permission(direction: str, zone: str) -> bool:
         return True  # allowed but strategies may apply penalty
     else:
         return False
+
+
+def calculate_trend_hierarchy(df: pd.DataFrame) -> dict:
+    """Calculate trend lines at 3 levels and determine price position.
+
+    Returns:
+        dict with:
+        - inner: zone at 20-bar lookback
+        - outer: zone at 50-bar lookback
+        - long_term: zone at 100-bar lookback
+        - price_position: str describing where price sits relative to hierarchy
+        - description: human-readable summary
+    """
+    inner = calculate_trend_lines(df, window=20)
+    outer = calculate_trend_lines(df, window=50)
+    long_term = calculate_trend_lines(df, window=100)
+
+    current_zone = inner.zone
+
+    positions = []
+
+    buy_zones = ("BUY", "strong_buy")
+    sell_zones = ("SELL", "strong_sell")
+
+    # Price between inner and outer
+    if outer.zone in buy_zones and current_zone in buy_zones:
+        positions.append("above outer uptrend")
+    elif outer.zone in sell_zones and current_zone in sell_zones:
+        positions.append("below outer downtrend")
+
+    # Long-term direction
+    lt_zone = long_term.zone
+    if lt_zone in buy_zones:
+        lt_direction = "bullish"
+    elif lt_zone in sell_zones:
+        lt_direction = "bearish"
+    else:
+        lt_direction = "neutral"
+
+    if positions:
+        description = f"Price {positions[0]}, long-term: {lt_direction}"
+    else:
+        description = f"Price in {current_zone} (mixed signals)"
+
+    return {
+        "inner": {"zone": inner.zone, "tier": "inner"},
+        "outer": {"zone": outer.zone, "tier": "outer"},
+        "long_term": {"zone": lt_zone, "tier": "long_term", "direction": lt_direction},
+        "price_position": positions[0] if positions else current_zone,
+        "description": description,
+    }

@@ -109,3 +109,35 @@ def average_atr(df: pd.DataFrame, period: int = 14, avg_period: int = 20) -> pd.
     """Rolling average of ATR — used to check if ATR is expanding or contracting."""
     atr_series = atr(df, period)
     return atr_series.rolling(window=avg_period).mean()
+
+
+def consecutive_extreme(
+    series: pd.Series,
+    threshold: float,
+    direction: str,
+    bars: int = 2,
+) -> bool:
+    """Check if series has been below/above threshold for N consecutive bars.
+
+    Args:
+        series: indicator series (e.g., RSI, MACD histogram)
+        threshold: the threshold value
+        direction: "below" or "above"
+        bars: number of consecutive bars required
+
+    Returns:
+        True if the condition holds for all N most-recent bars.
+    """
+    if len(series) < bars + 1:
+        return False
+
+    for i in range(1, bars + 1):
+        val = series.iloc[-i]
+        if pd.isna(val):
+            return False
+        if direction == "below" and val >= threshold:
+            return False
+        if direction == "above" and val <= threshold:
+            return False
+
+    return True

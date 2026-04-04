@@ -13,7 +13,8 @@ from __future__ import annotations
 import logging
 from typing import Any
 
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
+from pydantic import BaseModel
 
 from tracker.storage import SignalStorage
 
@@ -58,6 +59,10 @@ def _tracked_to_dict(ts: Any) -> dict[str, Any]:
         "pnlPips": ts.pnl_pips,
         "maxFavorable": ts.max_favorable,
         "maxAdverse": ts.max_adverse,
+        "userStatus": ts.user_status,
+        "notes": ts.notes,
+        "manualEntry": ts.manual_entry,
+        "manualExit": ts.manual_exit,
     }
 
 
@@ -119,3 +124,40 @@ async def check_pending() -> dict[str, Any]:
         "checked": checked,
         "pendingRemaining": len(get_storage().get_pending()),
     }
+
+
+class UpdateSignalRequest(BaseModel):
+    """Request body for PUT /tracker/signals/{signal_id}."""
+    user_status: str | None = None
+    notes: str | None = None
+    manual_entry: float | None = None
+    manual_exit: float | None = None
+
+
+@router.put("/signals/{signal_id}")
+async def update_signal(signal_id: str, body: UpdateSignalRequest) -> dict[str, Any]:
+    """Update user status, notes, or manual entry/exit on a tracked signal."""
+    storage = get_storage()
+
+    updates: dict[str, Any] = {}
+    if body.user_status is not None:
+        updates["user_status"] = body.user_status
+    if body.notes is not None:
+        updates["notes"] = body.notes
+    if body.manual_entry is not None:
+        updates["manual_entry"] = body.manual_entry
+    if body.manual_exit is not None:
+        updates["manual_exit"] = body.manual_exit
+
+    if not updates:
+        raise HTTPException(status_code=400, detail="No fields to update")
+
+    try:
+        updated = storage.update_signal(signal_id, **updates)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+    if updated is None:
+        raise HTTPException(status_code=404, detail=f"Signal {signal_id} not found")
+
+    return {"signal": _tracked_to_dict(updated)}

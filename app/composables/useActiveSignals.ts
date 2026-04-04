@@ -9,6 +9,7 @@ export interface ActiveSignal {
   reasons: string[]
   timeframe: string
   timestamp: string
+  generatedAt: string
   strategy: string
   riskReward: number
 }
@@ -49,6 +50,7 @@ function mapSignal(raw: EngineSignal): ActiveSignal {
     reasons: raw.reasons ?? [],
     timeframe: raw.timeframe,
     timestamp,
+    generatedAt: raw.generatedAt ?? '',
     strategy: raw.strategy,
     riskReward: raw.riskReward,
   }

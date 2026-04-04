@@ -14,6 +14,7 @@ import pandas as pd
 from config import get_config
 from indicators.technical import atr, bollinger_bands, ema, rsi
 from indicators.candlestick import detect_rejection_wick
+from indicators.zscore import check_zscore_extremes
 from strategies.base import BaseStrategy, Signal
 from strategies.consolidation_detector import detect_consolidation
 
@@ -92,6 +93,13 @@ class MeanReversion(BaseStrategy):
         confirmations = {}
         reasons = []
 
+        # Z-Score extremes
+        config = get_config()
+        zs = check_zscore_extremes(
+            close_h1, period=config.strategy.zscore_period,
+            entry_threshold=config.strategy.zscore_entry_threshold,
+        )
+
         # 1. RSI in pullback zone
         if buy_pullback:
             confirmations["RSI pullback (< 35)"] = True
@@ -99,6 +107,15 @@ class MeanReversion(BaseStrategy):
         elif sell_pullback:
             confirmations["RSI pullback (> 65)"] = True
             reasons.append(f"RSI at {rsi_val:.1f} — overbought pullback")
+
+        # Z-Score confirmation
+        if zs["value"] is not None:
+            if direction == "BUY" and zs["is_oversold"]:
+                confirmations["Z-Score oversold"] = True
+                reasons.append(f"Z-Score at {zs['value']:.2f} — oversold")
+            elif direction == "SELL" and zs["is_overbought"]:
+                confirmations["Z-Score overbought"] = True
+                reasons.append(f"Z-Score at {zs['value']:.2f} — overbought")
 
         # 2. Bollinger Band touch
         if direction == "BUY" and current_price <= lower_val * 1.005:
@@ -137,6 +154,12 @@ class MeanReversion(BaseStrategy):
             else:
                 confirmations[f"Zone filter ({zone_name})"] = False
 
+        # Volume absorption confluence
+        absorbed, abs_reason = self.check_volume_absorption(h1_df, direction)
+        if absorbed:
+            confirmations["Volume absorption"] = True
+            reasons.append(abs_reason)
+
         # --- Confidence scoring ---
         base_confidence = 40
 
@@ -146,6 +169,35 @@ class MeanReversion(BaseStrategy):
 
         if confirmations.get("H4 trend aligned"):
             base_confidence += 5
+
+        # Z-Score severity bonus
+        if zs["severity"] == "extreme":
+            base_confidence += 5
+
+        # Volume absorption bonus
+        if confirmations.get("Volume absorption"):
+            base_confidence += 10
+
+        # Consecutive bar confirmation (RSI sustained at extreme)
+        if config.strategy.consecutive_bar_enabled:
+            from indicators.technical import consecutive_extreme
+            rsi_series = rsi(close_h1, 14)
+            if direction == "BUY" and consecutive_extreme(
+                rsi_series, 35, "below", bars=config.strategy.consecutive_bar_count
+            ):
+                base_confidence += 5
+                reasons.append(f"RSI oversold {config.strategy.consecutive_bar_count} bars")
+            elif direction == "SELL" and consecutive_extreme(
+                rsi_series, 65, "above", bars=config.strategy.consecutive_bar_count
+            ):
+                base_confidence += 5
+                reasons.append(f"RSI overbought {config.strategy.consecutive_bar_count} bars")
+
+        # Trend hierarchy confluence
+        _, trend_reason, trend_adj = self.check_trend_hierarchy(h1_df, direction)
+        if trend_reason:
+            reasons.append(trend_reason)
+        base_confidence += trend_adj
 
         # Apply penalties
         base_confidence -= int(penalty)

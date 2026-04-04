@@ -49,6 +49,12 @@ class TrackedSignal:
     max_favorable: float | None = None
     max_adverse: float | None = None
     checked_at: str | None = None
+    # User trade tracking (Phase 2)
+    user_status: str = "auto"          # "auto" | "taken" | "skipped"
+    notes: str = ""                     # Free-text notes, max 500 chars
+    manual_entry: float | None = None   # User's actual fill price
+    manual_exit: float | None = None    # User's actual exit price
+    signal_ref: str = ""                # Daily reference e.g. "Signal 3"
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
@@ -104,8 +110,19 @@ class SignalStorage:
         if to_remove:
             logger.info("Cleaned up %d old signals", len(to_remove))
 
+    def count_today(self) -> int:
+        """Count all signals generated today (UTC)."""
+        today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        return sum(
+            1 for s in self._signals.values()
+            if s.generated_at.startswith(today)
+        )
+
     def save_signal(self, signal: Signal) -> TrackedSignal:
         """Convert a live Signal to a TrackedSignal and persist it."""
+        count = self.count_today() + 1
+        signal_ref = f"Signal {count}"
+
         ts = TrackedSignal(
             id=str(uuid.uuid4()),
             instrument=signal.instrument,
@@ -119,6 +136,7 @@ class SignalStorage:
             timeframe=signal.timeframe,
             reasons=signal.reasons,
             generated_at=signal.generated_at,
+            signal_ref=signal_ref,
         )
         self._signals[ts.id] = ts
         self._save()
@@ -211,6 +229,31 @@ class SignalStorage:
             checked_at=datetime.now(timezone.utc).isoformat(),
         )
         self._save()
+
+    def update_signal(self, signal_id: str, **updates: Any) -> TrackedSignal | None:
+        """Update user-facing fields on a tracked signal. Returns updated signal or None."""
+        ts = self._signals.get(signal_id)
+        if ts is None:
+            return None
+
+        # Validate user_status
+        if "user_status" in updates:
+            if updates["user_status"] not in ("auto", "taken", "skipped"):
+                raise ValueError(f"Invalid user_status: {updates['user_status']}")
+            # Don't allow status changes on resolved signals
+            if ts.outcome is not None:
+                raise ValueError("Cannot change user_status on resolved signal")
+
+        # Validate notes length
+        if "notes" in updates and len(updates["notes"]) > 500:
+            raise ValueError("Notes must be 500 characters or less")
+
+        # Build updated signal
+        updated_data = asdict(ts)
+        updated_data.update(updates)
+        self._signals[signal_id] = TrackedSignal(**updated_data)
+        self._save()
+        return self._signals[signal_id]
 
     def get_pending(self) -> list[TrackedSignal]:
         return [ts for ts in self._signals.values() if ts.outcome is None]

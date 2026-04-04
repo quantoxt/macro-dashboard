@@ -11,6 +11,7 @@ Fallback: empty calendar (never block signals on fetch failure).
 from __future__ import annotations
 
 import logging
+import time
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta, timezone
 from typing import Any
@@ -18,6 +19,10 @@ from typing import Any
 import httpx
 
 logger = logging.getLogger(__name__)
+
+# Module-level cache for calendar events
+_news_cache: dict = {"events": [], "fetched_at": 0.0}
+_NEWS_CACHE_TTL: int = 43200  # 12 hours
 
 # The 13 key US announcements to watch
 HIGH_IMPACT_KEYWORDS = [
@@ -74,11 +79,24 @@ def get_current_session() -> str:
         return "US"
 
 
-async def fetch_economic_calendar() -> list[CalendarEvent]:
+async def fetch_economic_calendar(
+    cache_ttl: int | None = None,
+    force_refresh: bool = False,
+) -> list[CalendarEvent]:
     """Fetch this week's economic calendar from ForexFactory RSS.
 
+    Uses a module-level TTL cache to avoid hitting rate limits.
     Never raises — returns empty list on failure.
     """
+    global _news_cache
+
+    ttl = cache_ttl or _NEWS_CACHE_TTL
+
+    # Return cached if fresh and not forcing refresh
+    if not force_refresh and _news_cache["events"] and (time.time() - _news_cache["fetched_at"]) < ttl:
+        logger.debug("Returning %d cached news events", len(_news_cache["events"]))
+        return _news_cache["events"]
+
     url = "https://nfs.faireconomy.media/ff_calendar_thisweek.json"
     events: list[CalendarEvent] = []
 
@@ -103,12 +121,31 @@ async def fetch_economic_calendar() -> list[CalendarEvent]:
                 currency=currency,
             ))
 
+        # Update cache
+        _news_cache["events"] = events
+        _news_cache["fetched_at"] = time.time()
+
         logger.debug("Fetched %d calendar events", len(events))
 
     except Exception as exc:
         logger.warning("Failed to fetch economic calendar: %s", exc)
+        # Return stale cache if available, else empty list
+        if _news_cache["events"]:
+            return _news_cache["events"]
 
     return events
+
+
+def get_news_cache_status() -> dict:
+    """Return current news cache status."""
+    age_seconds = time.time() - _news_cache["fetched_at"] if _news_cache["fetched_at"] else 0
+    return {
+        "cached": len(_news_cache["events"]) > 0,
+        "event_count": len(_news_cache["events"]),
+        "age_seconds": round(age_seconds),
+        "ttl_seconds": _NEWS_CACHE_TTL,
+        "fresh": age_seconds < _NEWS_CACHE_TTL,
+    }
 
 
 def _parse_event_datetime(date_str: str) -> datetime | None:

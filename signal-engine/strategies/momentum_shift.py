@@ -182,6 +182,12 @@ class MomentumShift(BaseStrategy):
         else:
             confirmations[f"Zone ({zone_name})"] = False
 
+        # Volume absorption confluence
+        absorbed, abs_reason = self.check_volume_absorption(h1_df, direction)
+        if absorbed:
+            confirmations["Volume absorption"] = True
+            reasons.append(abs_reason)
+
         # --- Confidence scoring ---
         base_confidence = 35
 
@@ -192,6 +198,31 @@ class MomentumShift(BaseStrategy):
             base_confidence += 5
         if confirmations.get("Volume increasing"):
             base_confidence += 5
+        if confirmations.get("Volume absorption"):
+            base_confidence += 10
+
+        # Consecutive MACD histogram confirmation
+        config_strat = get_config().strategy
+        if config_strat.consecutive_bar_enabled:
+            from indicators.technical import consecutive_extreme
+            _, _, histogram = macd(close_h1)
+            hist_diff = histogram.diff()
+            if direction == "BUY" and consecutive_extreme(
+                hist_diff, 0, "above", bars=config_strat.consecutive_bar_count
+            ):
+                base_confidence += 5
+                reasons.append(f"MACD histogram rising {config_strat.consecutive_bar_count} bars")
+            elif direction == "SELL" and consecutive_extreme(
+                hist_diff, 0, "below", bars=config_strat.consecutive_bar_count
+            ):
+                base_confidence += 5
+                reasons.append(f"MACD histogram falling {config_strat.consecutive_bar_count} bars")
+
+        # Trend hierarchy confluence
+        _, trend_reason, trend_adj = self.check_trend_hierarchy(h1_df, direction)
+        if trend_reason:
+            reasons.append(trend_reason)
+        base_confidence += trend_adj
 
         # Session penalty
         base_confidence -= session_penalty

@@ -101,6 +101,93 @@ class BaseStrategy:
         permitted = check_zone_permission(direction, zone.zone)
         return permitted, zone.zone
 
+    def check_zscore_confluence(
+        self, h1_df: pd.DataFrame, direction: str
+    ) -> tuple[bool, str]:
+        """Check if Z-Score confirms the signal direction."""
+        if not self.params.zscore_enabled:
+            return False, ""
+
+        from indicators.zscore import zscore_at_last
+        val = zscore_at_last(h1_df["close"], self.params.zscore_period)
+
+        if val is None:
+            return False, ""
+
+        if direction == "BUY" and val < -1.5:
+            return True, f"Z-Score confirms oversold ({val:.1f})"
+        elif direction == "SELL" and val > 1.5:
+            return True, f"Z-Score confirms overbought ({val:.1f})"
+
+        return False, ""
+
+    def check_volume_absorption(
+        self, h1_df: pd.DataFrame, direction: str
+    ) -> tuple[bool, str]:
+        """Check if volume absorption pattern confirms signal direction.
+
+        Silently skips if no volume data available (forex pairs).
+        """
+        if not self.params.volume_absorption_enabled:
+            return False, ""
+
+        from indicators.volume import check_absorption_confluence
+        return check_absorption_confluence(
+            h1_df, direction,
+            volume_threshold=self.params.volume_absorption_threshold,
+        )
+
+    def check_trend_hierarchy(
+        self, h1_df: pd.DataFrame, direction: str
+    ) -> tuple[bool, str, int]:
+        """Check if trend hierarchy supports the signal direction.
+
+        Returns (supports: bool, reason: str, confidence_adjustment: int).
+        """
+        if not self.params.trend_hierarchy_enabled:
+            return True, "", 0
+
+        from indicators.trendlines import calculate_trend_hierarchy
+        try:
+            hierarchy = calculate_trend_hierarchy(h1_df)
+        except Exception:
+            return True, "", 0
+
+        outer = hierarchy["outer"]["zone"]
+        lt = hierarchy["long_term"]
+        adjustment = 0
+        reasons: list[str] = []
+
+        buy_zones = ("BUY", "strong_buy")
+        sell_zones = ("SELL", "strong_sell")
+
+        # Outer trend agreement
+        if direction == "BUY":
+            if outer in buy_zones:
+                adjustment += 5
+                reasons.append("Above outer uptrend")
+            elif outer in sell_zones:
+                adjustment -= 10
+                reasons.append("Against outer downtrend")
+        elif direction == "SELL":
+            if outer in sell_zones:
+                adjustment += 5
+                reasons.append("Below outer downtrend")
+            elif outer in buy_zones:
+                adjustment -= 10
+                reasons.append("Against outer uptrend")
+
+        # Long-term agreement
+        if direction == "BUY" and lt.get("direction") == "bullish":
+            adjustment += 3
+            reasons.append("Long-term trend bullish")
+        elif direction == "SELL" and lt.get("direction") == "bearish":
+            adjustment += 3
+            reasons.append("Long-term trend bearish")
+
+        reason = "; ".join(reasons) if reasons else ""
+        return adjustment > 0, reason, adjustment
+
     def calculate_confluence_score(
         self, confirmations: dict[str, bool], base_confidence: int
     ) -> tuple[int, list[str]]:

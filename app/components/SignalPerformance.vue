@@ -64,7 +64,7 @@ function pnlColor(v: number): string {
           <span>/</span>
           <span>{{ stats.losses }}L</span>
           <span>/</span>
-          <span>{{ stats.expired }}E</span>
+          <span>{{ stats.expired }}E <span class="text-[8px] opacity-60">({{ stats.expiredTime || 0 }}t/{{ stats.expiredAdverse || 0 }}a)</span></span>
           <span>/</span>
           <span>{{ stats.pending }} pending</span>
         </div>
@@ -82,7 +82,7 @@ function pnlColor(v: number): string {
             <span class="text-sm font-bold tabular-nums" :class="pnlColor(perf.totalPnlPips)">{{ fmtPips(perf.totalPnlPips) }} pips</span>
           </div>
           <div class="flex items-center gap-3 text-[10px] text-[var(--muted-foreground)]">
-            <span>{{ perf.wins }}W / {{ perf.losses }}L / {{ perf.expired }}E / {{ perf.pending }} pending</span>
+            <span>{{ perf.wins }}W / {{ perf.losses }}L / {{ perf.expired }}E <span class="text-[8px] opacity-60">({{ perf.expiredTime || 0 }}t/{{ perf.expiredAdverse || 0 }}a)</span> / {{ perf.pending }} pending</span>
             <span class="mx-auto" />
             <span class="font-semibold" :class="perf.winRate >= 0.5 ? 'text-[var(--bullish)]' : 'text-[var(--bearish)]'">{{ fmtPct(perf.winRate) }}</span>
           </div>

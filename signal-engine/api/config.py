@@ -132,3 +132,51 @@ async def update_strategy(strategy_name: str, update: StrategyUpdate) -> dict[st
     merged = dict(defaults[strategy_name])
     merged.update(_strategy_overrides[strategy_name])
     return {"strategy": strategy_name, "config": merged}
+
+
+@router.get("/news-cache")
+async def news_cache_status() -> dict[str, Any]:
+    """Return current news calendar cache status."""
+    from indicators.news import get_news_cache_status
+    return get_news_cache_status()
+
+
+@router.post("/news-cache/refresh")
+async def news_cache_refresh() -> dict[str, Any]:
+    """Force-refresh the news calendar cache."""
+    from indicators.news import fetch_economic_calendar
+    events = await fetch_economic_calendar(force_refresh=True)
+    return {"refreshed": True, "event_count": len(events)}
+
+
+@router.get("/vix-cache")
+async def vix_cache_status() -> dict[str, Any]:
+    """Return current VIX cache status."""
+    from indicators.vix import get_vix_cache_status
+    return get_vix_cache_status()
+
+
+@router.get("/notifier")
+async def notifier_status() -> dict[str, Any]:
+    """Return Telegram notifier status."""
+    from notifier.telegram import get_notifier
+    notifier = get_notifier()
+    if notifier is None:
+        return {"enabled": False, "reason": "Not configured (missing env vars or disabled in config)"}
+    return {
+        "enabled": True,
+        "configured": notifier.is_configured,
+        "chatId": notifier.chat_id[:4] + "***" + notifier.chat_id[-4:],
+        "batchWindow": notifier.batch_window,
+    }
+
+
+@router.post("/notifier/test")
+async def notifier_test() -> dict[str, Any]:
+    """Send a test Telegram message."""
+    from notifier.telegram import get_notifier
+    notifier = get_notifier()
+    if notifier is None:
+        raise HTTPException(status_code=503, detail="Notifier not configured")
+    success = await notifier.send_test()
+    return {"sent": success}

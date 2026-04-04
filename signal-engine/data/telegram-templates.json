@@ -1,0 +1,50 @@
+{
+  "signal_single": {
+    "id": "signal_single",
+    "name": "Signal Alert (Single)",
+    "template": "\ud83d\udea8 *New Signal* {signal_ref}\n\n{direction_emoji} *{instrument}* \u2014 {direction}\nStrategy: {strategy}\nConfidence: {confidence}%\n\nEntry: `{entry}` \u2192 SL: `{sl}` \u2192 TP: `{tp}`\nR:R: {rr}\n\n_{reasons}_\n{tradingview_url}",
+    "description": "Sent when a single new signal is generated"
+  },
+  "signal_batch": {
+    "id": "signal_batch",
+    "name": "Signal Alert (Batch)",
+    "template": "\ud83d\udea8 *{signal_count} New Signals*\n\n{signals_list}",
+    "description": "Sent when multiple signals are generated in the same cycle"
+  },
+  "outcome_win": {
+    "id": "outcome_win",
+    "name": "Outcome: Win",
+    "template": "\u2705 {signal_ref} *{instrument}* {direction} ({strategy}) \u2192 *WIN* {pnl_sign}{pnl_pips} pips\n{notes_line}{manual_line}",
+    "description": "Sent when a signal hits take profit"
+  },
+  "outcome_loss": {
+    "id": "outcome_loss",
+    "name": "Outcome: Loss",
+    "template": "\u274c {signal_ref} *{instrument}* {direction} ({strategy}) \u2192 *LOSS* {pnl_pips} pips\n{notes_line}{manual_line}",
+    "description": "Sent when a signal hits stop loss"
+  },
+  "outcome_expired": {
+    "id": "outcome_expired",
+    "name": "Outcome: Expired",
+    "template": "\u23f0 {signal_ref} *{instrument}* {direction} ({strategy}) \u2192 *EXPIRED*",
+    "description": "Sent when a signal expires without hitting TP/SL"
+  },
+  "daily_summary": {
+    "id": "daily_summary",
+    "name": "Daily Summary",
+    "template": "\ud83d\udcca *Daily Summary*\n\nTotal signals: {total_signals}\nWins: {wins} | Losses: {losses} | Expired: {expired}\nWin rate: {win_rate}%\nAvg PnL: {avg_pnl} pips\n\n_{top_performers}_",
+    "description": "Scheduled daily summary of signal performance"
+  },
+  "brief": {
+    "id": "brief",
+    "name": "Market Brief",
+    "template": "\ud83d\udccb *Market Brief*\n\nSession: {session}\nVIX: {vix} ({vix_regime})\nActive signals: {active_signals}\nToday's signals: {today_signals}",
+    "description": "Quick market overview triggered by /brief command"
+  },
+  "test": {
+    "id": "test",
+    "name": "Test Message",
+    "template": "\u2705 *Macro Dashboard* connected. Get ready for guide signals.",
+    "description": "Sent when testing the bot connection"
+  }
+}

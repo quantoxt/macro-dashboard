@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Sun, Moon, Monitor, FlaskConical, Settings } from 'lucide-vue-next'
+import { Sun, Moon, Monitor, FlaskConical, Settings, History, Send } from 'lucide-vue-next'
 import type { Theme } from '@/composables/useTheme'
 
 const { formatted, pending } = useLastUpdated()
@@ -43,6 +43,16 @@ useHead({
           <!-- Nav links -->
           <div class="hidden md:flex items-center gap-1 ml-4">
             <NuxtLink
+              to="/signals"
+              class="flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[10px] font-medium transition-all duration-200"
+              :class="route.path === '/signals'
+                ? 'bg-[var(--surface)] text-[var(--foreground)] shadow-sm'
+                : 'text-[var(--muted-foreground)] hover:text-[var(--foreground)]'"
+            >
+              <History class="w-3 h-3" />
+              Signals
+            </NuxtLink>
+            <NuxtLink
               to="/backtest"
               class="flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[10px] font-medium transition-all duration-200"
               :class="route.path === '/backtest'
@@ -51,6 +61,16 @@ useHead({
             >
               <FlaskConical class="w-3 h-3" />
               Backtest
+            </NuxtLink>
+            <NuxtLink
+              to="/telegram"
+              class="flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[10px] font-medium transition-all duration-200"
+              :class="route.path === '/telegram'
+                ? 'bg-[var(--surface)] text-[var(--foreground)] shadow-sm'
+                : 'text-[var(--muted-foreground)] hover:text-[var(--foreground)]'"
+            >
+              <Send class="w-3 h-3" />
+              Telegram
             </NuxtLink>
             <NuxtLink
               to="/settings"
@@ -69,12 +89,28 @@ useHead({
           <!-- Mobile nav -->
           <div class="flex md:hidden items-center gap-1">
             <NuxtLink
+              to="/signals"
+              class="p-1.5 rounded-md transition-all duration-200"
+              :class="route.path === '/signals' ? 'text-[var(--foreground)]' : 'text-[var(--muted-foreground)]'"
+              aria-label="Signals"
+            >
+              <History class="w-3.5 h-3.5" />
+            </NuxtLink>
+            <NuxtLink
               to="/backtest"
               class="p-1.5 rounded-md transition-all duration-200"
               :class="route.path === '/backtest' ? 'text-[var(--foreground)]' : 'text-[var(--muted-foreground)]'"
               aria-label="Backtest"
             >
               <FlaskConical class="w-3.5 h-3.5" />
+            </NuxtLink>
+            <NuxtLink
+              to="/telegram"
+              class="p-1.5 rounded-md transition-all duration-200"
+              :class="route.path === '/telegram' ? 'text-[var(--foreground)]' : 'text-[var(--muted-foreground)]'"
+              aria-label="Telegram"
+            >
+              <Send class="w-3.5 h-3.5" />
             </NuxtLink>
             <NuxtLink
               to="/settings"
