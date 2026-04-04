@@ -310,23 +310,38 @@ class TelegramNotifier:
     # --- Core send ---
 
     async def _send_to_chats(self, text: str, parse_mode: str = "markdown") -> None:
-        """Send a message to all enabled chats."""
+        """Send a message to all configured chats AND active subscribers."""
         from .templates import get_settings_store
-        settings = get_settings_store().get()
+        from .subscribers import get_subscriber_store
 
-        chats = settings.chats
-        # Fallback to primary chat_id if no chats configured
-        if not any(c.get("id") for c in chats):
+        settings = get_settings_store().get()
+        store = get_subscriber_store()
+
+        # Collect all target chat IDs (deduplicated)
+        targets: dict[str, str] = {}  # chat_id -> label (for logging)
+
+        # Owner's configured chats
+        for chat in settings.chats:
+            cid = str(chat.get("id", "")).strip()
+            if chat.get("enabled") and cid and cid.lstrip("-").isdigit():
+                targets[cid] = chat.get("label", "owner")
+
+        # Subscribers
+        for sub in store.get_all_active():
+            cid = str(sub.chat_id)
+            if cid not in targets:  # don't double-send to owner if they're also subscribed
+                targets[cid] = sub.label
+
+        if not targets:
+            # Fallback to primary chat_id
             await self._send_to_chat(self.chat_id, text, parse_mode)
             return
 
-        for chat in chats:
-            cid = str(chat.get("id", "")).strip()
-            if chat.get("enabled") and cid and cid.lstrip("-").isdigit():
-                try:
-                    await self._send_to_chat(cid, text, parse_mode)
-                except Exception as exc:
-                    logger.error("Failed to send to chat %s: %s", chat.get("label", "?"), exc)
+        for cid, label in targets.items():
+            try:
+                await self._send_to_chat(cid, text, parse_mode)
+            except Exception as exc:
+                logger.error("Failed to send to %s (%s): %s", label, cid, exc)
 
     async def _send_to_chat(self, chat_id: str, text: str, parse_mode: str = "markdown") -> None:
         """Send a message to a specific chat. Handles splitting if >4096 chars."""

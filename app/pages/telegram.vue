@@ -44,6 +44,7 @@ const { loading, error } = useTelegram()
           <div class="space-y-4">
             <TelegramBotCommands />
             <TelegramChatManager />
+            <TelegramSubscriberManager />
           </div>
         </TabsContent>
       </Tabs>

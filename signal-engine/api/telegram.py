@@ -331,3 +331,67 @@ async def simulate_batch_notification(request: SimBatchRequest = SimBatchRequest
     finally:
         if request.bypass_rules:
             settings.update(quiet_hours_enabled=original_quiet, cooldown_enabled=original_cooldown)
+
+
+# --- Subscriber management ---
+
+
+@router.get("/subscribers")
+async def list_subscribers() -> dict[str, Any]:
+    """List all subscribers."""
+    from dataclasses import asdict
+    from notifier.subscribers import get_subscriber_store
+    store = get_subscriber_store()
+    return {
+        "subscribers": [asdict(s) for s in store.get_all()],
+        "active_count": store.get_count(),
+        "total_count": len(store.get_all()),
+    }
+
+
+class RemoveSubscriberRequest(BaseModel):
+    chat_id: str
+
+
+@router.delete("/subscribers")
+async def remove_subscriber(request: RemoveSubscriberRequest) -> dict[str, Any]:
+    """Remove a subscriber permanently."""
+    from notifier.subscribers import get_subscriber_store
+    store = get_subscriber_store()
+    success = store.hard_remove(request.chat_id)
+    if not success:
+        raise HTTPException(status_code=404, detail="Subscriber not found")
+    return {"removed": True, "chat_id": request.chat_id}
+
+
+class BroadcastRequest(BaseModel):
+    message: str
+
+
+@router.post("/broadcast")
+async def api_broadcast(request: BroadcastRequest) -> dict[str, Any]:
+    """Send broadcast to all subscribers."""
+    from notifier.telegram import get_notifier
+    from notifier.subscribers import get_subscriber_store
+
+    notifier = get_notifier()
+    if notifier is None:
+        raise HTTPException(status_code=503, detail="Notifier not configured")
+
+    store = get_subscriber_store()
+    subscribers = store.get_all_active()
+
+    if not subscribers:
+        return {"sent": 0, "failed": 0, "total": 0}
+
+    text = f"📢 *Broadcast*\n\n{request.message}"
+    sent = 0
+    failed = 0
+    for sub in subscribers:
+        try:
+            await notifier._send_to_chat(sub.chat_id, text)
+            sent += 1
+        except Exception:
+            failed += 1
+
+    return {"sent": sent, "failed": failed, "total": len(subscribers)}
